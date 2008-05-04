@@ -62,6 +62,8 @@ http://www.gia.deinf.ufma.br/~labmint/
 
 package br.ufma.deinf.gia.laws.ncl;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -152,7 +154,7 @@ public class NCLStructure {
 		att("media", "refer", false, DataType.ID);
 		att("media", "instance", false, DataType.STRING); // new, instSame, gradSame
 		att("media", "type", false, DataType.MEDIA_DESCRIPTION); // NÃ£o ta funcionando
-		att("media", "descriptor", false, DataType.ID); ref("media", "descriptor", "descriptor", "id");
+		att("media", "descriptor", false, DataType.ID);
 		ct("media", "area", '*');
 		ct("media", "property", '*');
 	
@@ -184,10 +186,6 @@ public class NCLStructure {
 		att("port", "id", true, DataType.ID);
 		att("port", "component", true, DataType.ID); // Verificar se Ã© isso mesmo
 		att("port", "interface", false, DataType.ID); // Verificar se Ã© isso mesmo
-		//Referências
-			ref("port", "component", "media", "id");
-			ref("port", "component", "context", "id");
-			ref("port", "component", "switch", "id");
 	
 	//Extended AttributeAnchor Module
 		//property
@@ -208,7 +206,7 @@ public class NCLStructure {
 		att("descriptor", "id", true, DataType.ID);
 		att("descriptor", "player", false, DataType.STRING);
 		att("descriptor", "explicitDur", false, DataType.TIME);
-		att("descriptor", "region", false, DataType.ID);  ref("descriptor", "region", "region", "id");
+		att("descriptor", "region", false, DataType.ID);
 		att("descriptor", "freeze", false);
 		att("descriptor", "moveLeft", false);
 		att("descriptor", "moveRight", false);
@@ -242,10 +240,7 @@ public class NCLStructure {
 		att("bind", "interface", false, DataType.ID);
 		att("bind", "descriptor", false, DataType.ID);
 		ct("bind", "bindParam", '*');
-		//Referências
-			ref("bind", "component", "media", "id");
-			ref("bind", "component", "context", "id");
-			ref("bind", "component", "switch", "id");
+		
 		//bindParam
 		att("bindParam", "name", true, DataType.ID);
 		att("bindParam", "value", true, DataType.STRING);
@@ -256,7 +251,7 @@ public class NCLStructure {
 	
 		//link
 		att("link", "id", false, DataType.ID);
-		att("link", "xconnector", true, DataType.XCONNECTOR); ref("link", "xconnector", "causalConnector", "id");
+		att("link", "xconnector", true, DataType.XCONNECTOR);
 		ct("link", "linkParam", '*');
 		ct("link", "bind", '+');
 	
@@ -430,6 +425,28 @@ public class NCLStructure {
 		//metadata
 		//att("metadata", null, false);
 			//TODO: "RDF tree" as child
+	
+	//Referências
+		//tagname, atributo, refTagname, refTagAtributo
+		ref("media", "descriptor", "descriptor", "id");
+
+		ref("descriptor", "region", "region", "id");
+
+		ref("port", "component", "media", "id");
+		ref("port", "component", "context", "id");
+		ref("port", "component", "switch", "id");
+		ref("port", "interface", "area", "id");
+		
+		ref("bind", "component", "media", "id");
+		ref("bind", "component", "context", "id");
+		ref("bind", "component", "switch", "id");
+		ref("bind", "role", "simpleCondition", "role");
+		ref("bind", "role", "simpleAction", "role");
+		ref("bind", "role", "compoundCondition", "role");
+		ref("bind", "role", "compoundAction", "role");		
+		
+		ref("link", "xconnector", "causalConnector", "id");
+		
 	}
 
 	/**
@@ -437,8 +454,9 @@ public class NCLStructure {
 	 * @return A instÃ¢ncia de {@link NCLStructure}
 	 */
 	public static NCLStructure getInstance(){
-		if(instance == null) return new NCLStructure();
-		else return instance;
+		if(instance == null)
+			instance = new NCLStructure();
+		return instance;
 	}
 	
 	/**
@@ -625,14 +643,16 @@ public class NCLStructure {
 		return false;
 	}
 	
-	public NCLReference getNCLReference(String elementName, String attributeName){
+	public Collection getNCLReference(String elementName, String attributeName){
 		if(references.containsKey(elementName)){
+			Collection <NCLReference> ret = new ArrayList();
 			Collection<NCLReference> collection = references.get(elementName);
 			Iterator it = collection.iterator();
 			while(it.hasNext()){
 				NCLReference ref = (NCLReference)it.next();
-				if(ref.getAttribute().equals(attributeName)) return ref;
+				if(ref.getAttribute().equals(attributeName)) ret.add(ref);
 			}
+			return ret;
 		}
 		return null;
 	}
