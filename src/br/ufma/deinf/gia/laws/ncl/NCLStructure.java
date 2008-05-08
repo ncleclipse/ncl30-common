@@ -1,15 +1,14 @@
 /******************************************************************************
-Este arquivo eh uma extensao do ambiente declarativo do middleware 
-Ginga (Ginga-NCL).
+Este arquivo eh parte da implementacao da biblioteca ncl30-common.
 
-Direitos Autorais Reservados (c)2007 LabMint, Laboratorio de Midias Interativas 
+Direitos Autorais Reservados (c)2008 Laws, Laboratory of Advanced Web Systems 
 Departamento de Informatica, UFMA - Universidade Federal do Maranhao
 
 Este programa eh software livre; voce pode redistribui-lo e/ou modifica-lo sob 
 os termos da Licenca Publica Geral GNU versao 2 conforme publicada pela Free 
 Software Foundation.
 
-Este programa eh distribu�do na expectativa de que seja util, porem, SEM 
+Este programa eh distribuido na expectativa de que seja util, porem, SEM 
 ADEQUACAO A UMA FINALIDADE ESPECIFICA. Consulte a Licenca Publica Geral do 
 GNU versao 2 para mais detalhes. 
 
@@ -18,21 +17,19 @@ com este programa; se nao, escreva para a Free Software Foundation, Inc., no
 endereco 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA. 
 
 Para maiores informacoes:
-ncl @ telemidia.puc-rio.br
+rg.albuquerque@gmail.com
+http://laws.deinf.ufma.br/
+
+Sobre NCL - Nested Context Language:
 http://www.ncl.org.br
-http://www.ginga.org.br
 http://www.softwarepublico.gov.br
 
-Sobre o Validador NCL:
-labmint @ gia.deinf.ufma.br
-http://www.gia.deinf.ufma.br/~labmint/
 
 
 ******************************************************************************
-This file is an extension of the declarative environment of 
-middleware Ginga (Ginga-NCL)
+This file is part of ncl30-common library.
 
-Copyright: 2007 LabMint - Laboratory of Interactive Medias, Science Computing
+Copyright: 2008 LabMint - Laboratory of Interactive Medias, Science Computing
            Department, Federal University of Maranhao, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it under 
@@ -49,27 +46,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
 For further information contact:
-ncl @ telemidia.puc-rio.br
-http://www.ncl.org.br
-http://www.ginga.org.br
-http://www.softwarepublico.gov.br
+rg.albuquerque@gmail.com
+http://laws.deinf.ufma.br/
 
-About NCL Validator:
-labmint @ gia.deinf.ufma.br
-http://www.gia.deinf.ufma.br/~labmint/
+About NCL - Nested Context Language:
+http://www.ncl.org.br
+http://www.softwarepublico.gov.br
 
 *******************************************************************************/
 
 package br.ufma.deinf.gia.laws.ncl;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import br.ufma.deinf.gia.laws.ncl.NCLStructure;
 import br.ufma.deinf.gia.laws.util.MultiHashMap;
 
 /**
