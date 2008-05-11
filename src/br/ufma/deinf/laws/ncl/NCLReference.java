@@ -1,4 +1,4 @@
-package br.ufma.deinf.gia.laws.ncl;
+package br.ufma.deinf.laws.ncl;
 
 public class NCLReference {
 	private String tagname;

@@ -60,14 +60,14 @@ labmint @ gia.deinf.ufma.br
 http://www.gia.deinf.ufma.br/~labmint/
 
 *******************************************************************************/
-package br.ufma.deinf.gia.laws.ncl;
+package br.ufma.deinf.laws.ncl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import br.ufma.deinf.gia.laws.ncl.DataType;
+import br.ufma.deinf.laws.ncl.DataType;
 
 /**
  * Classe responsável por validar os tipos básicos da linguagem NCL.

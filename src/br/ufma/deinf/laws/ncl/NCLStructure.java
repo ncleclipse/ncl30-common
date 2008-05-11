@@ -55,7 +55,7 @@ http://www.softwarepublico.gov.br
 
 *******************************************************************************/
 
-package br.ufma.deinf.gia.laws.ncl;
+package br.ufma.deinf.laws.ncl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -63,7 +63,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import br.ufma.deinf.gia.laws.util.MultiHashMap;
+import br.ufma.deinf.laws.util.MultiHashMap;
 
 /**
  * Classe que representa a estrutura sintática da linguagem NCL.

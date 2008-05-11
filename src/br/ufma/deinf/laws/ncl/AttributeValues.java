@@ -1,4 +1,4 @@
-package br.ufma.deinf.gia.laws.ncl;
+package br.ufma.deinf.laws.ncl;
 
 import java.util.Vector;
 

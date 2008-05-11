@@ -1,4 +1,4 @@
-package br.ufma.deinf.gia.laws.util;
+package br.ufma.deinf.laws.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
