@@ -145,7 +145,7 @@ public class NCLStructure {
 		att("media", "id", true, DataType.ID);
 		att("media", "src", false, DataType.URI);
 		att("media", "refer", false, DataType.ID);
-		att("media", "instance", false, DataType.STRING); // new, instSame, gradSame
+		att("media", "instance", false, DataType.INSTANCE); // new, instSame, gradSame
 		att("media", "type", false, DataType.MEDIA_DESCRIPTION); // NÃ£o ta funcionando
 		att("media", "descriptor", false, DataType.ID);
 		ct("media", "area", '*');
@@ -422,6 +422,7 @@ public class NCLStructure {
 	//Referências
 		//tagname, atributo, refTagname, refTagAtributo
 		ref("media", "descriptor", "descriptor", "id");
+		ref("media", "refer", "media", "id");
 
 		ref("descriptor", "region", "region", "id");
 

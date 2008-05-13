@@ -90,6 +90,7 @@ public class DataType {
 	public static final int XCONNECTOR = 11;
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
+	public static final int INSTANCE = 14;
 	
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -191,6 +192,9 @@ public class DataType {
 				|| value.equals("http://www.ncl.org.br/NCL3.0/BDTVProfile"));
 	}
 	
+	public static boolean isInstance(String value) {
+		return value.equals("new") || value.equals("instSame") || value.equals("gradSame");
+	}
 	public static boolean isDataType(int dataType, String value){
 		boolean ok = true;
 		switch(dataType){
@@ -235,7 +239,10 @@ public class DataType {
 				break;
 			case DataType.SYNCHRONISM_OPERATOR:
 				if(!DataType.isSyncronismOperator(value)) ok = false;
-				break;				
+				break;	
+			case DataType.INSTANCE:
+				if(!DataType.isInstance(value)) ok = false;
+				break;
 		}
 		return ok;
 	}

@@ -37,6 +37,11 @@ public class AttributeValues {
 			ret.add("application/x-ginga-settings");
 			ret.add("application/x-ginga-time");
 		}
+		if(type == DataType.INSTANCE){
+			ret.add("new");
+			ret.add("instSame");
+			ret.add("gradSame");
+		}
 		return ret;
 	}
 }
