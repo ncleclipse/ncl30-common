@@ -17,6 +17,26 @@ public class AttributeValues {
 			ret.add("and");
 			ret.add("or");
 		}
+		if(type == DataType.MEDIA_DESCRIPTION){
+			ret.add("text/html");
+			ret.add("text/plain");
+			ret.add("text/css");
+			ret.add("text/xml");
+			ret.add("image/bmp");
+			ret.add("image/png");
+			ret.add("image/gif");
+			ret.add("image/jpeg");
+			ret.add("audio/basic");
+			ret.add("audio/mp3");
+			ret.add("audio/mp2");
+			ret.add("audio/mpeg");
+			ret.add("audio/mpeg4");
+			ret.add("video/mpeg");
+			ret.add("application/x-ginga-NCLua");
+			ret.add("application/x-ginga-NCLet");
+			ret.add("application/x-ginga-settings");
+			ret.add("application/x-ginga-time");
+		}
 		return ret;
 	}
 }
