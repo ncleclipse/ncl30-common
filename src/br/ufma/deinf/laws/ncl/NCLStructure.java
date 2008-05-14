@@ -419,7 +419,7 @@ public class NCLStructure {
 		//att("metadata", null, false);
 			//TODO: "RDF tree" as child
 	
-	//Referências
+	//Referï¿½ncias
 		//tagname, atributo, refTagname, refTagAtributo
 		ref("media", "descriptor", "descriptor", "id");
 		ref("media", "refer", "media", "id");
@@ -430,6 +430,7 @@ public class NCLStructure {
 		ref("port", "component", "context", "id");
 		ref("port", "component", "switch", "id");
 		ref("port", "interface", "area", "id");
+		ref("port", "interface", "port", "id");
 		
 		ref("bind", "component", "media", "id");
 		ref("bind", "component", "context", "id");
