@@ -8,6 +8,7 @@ public class AttributeValues {
 		if(type == DataType.XMLNS){
 			ret.add("http://www.ncl.org.br/NCL3.0/EDTVProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/BDTVProfile");
+			ret.add("http://www.ncl.org.br/NCL3.0/CausalConnectorProfile");
 		}
 		if(type == DataType.SYNCHRONISM_OPERATOR){
 			ret.add("par");
