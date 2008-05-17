@@ -189,7 +189,8 @@ public class DataType {
 	public static boolean isXMLNS(String value) {
 		// TODO Auto-generated method stub
 		return (value.equals("http://www.ncl.org.br/NCL3.0/EDTVProfile")
-				|| value.equals("http://www.ncl.org.br/NCL3.0/BDTVProfile"));
+				|| value.equals("http://www.ncl.org.br/NCL3.0/BDTVProfile")
+				|| value.equals("http://www.ncl.org.br/NCL3.0/CausalConnectorProfile"));
 	}
 	
 	public static boolean isInstance(String value) {
