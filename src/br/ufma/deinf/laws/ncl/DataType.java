@@ -91,6 +91,7 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
+	public static final int DEVICE = 15; //validação feita no semântico (gera um warning).
 	
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -179,7 +180,7 @@ public class DataType {
 	    m = p.matcher(str);
 	    return m.matches();
 	}
-
+	
 	public static boolean isMediaDescription(String value) {
 		// TODO Auto-generated method stub
 		//	Está sendo validado no Semântico

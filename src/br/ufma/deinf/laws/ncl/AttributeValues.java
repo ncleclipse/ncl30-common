@@ -43,6 +43,10 @@ public class AttributeValues {
 			ret.add("instSame");
 			ret.add("gradSame");
 		}
+		if(type == DataType.DEVICE){
+			ret.add("systemScreen(i)");
+			ret.add("systemAudio(i)");
+		}
 		return ret;
 	}
 }
