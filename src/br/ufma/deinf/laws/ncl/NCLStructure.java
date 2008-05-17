@@ -123,7 +123,7 @@ public class NCLStructure {
 	//Extended Layout Module
 		//regionBase
 		att("regionBase", "id", false, DataType.ID);
-		att("regionBase", "device", false, DataType.STRING);
+		att("regionBase", "device", false, DataType.DEVICE);
 		// Tem q ter pelo menos um dos dois (importBase | region)+
 		ct("regionBase", "importBase", '#');
 		ct("regionBase", "region", '#');
@@ -419,10 +419,12 @@ public class NCLStructure {
 		//att("metadata", null, false);
 			//TODO: "RDF tree" as child
 	
-	//Referï¿½ncias
+	//Referências
 		//tagname, atributo, refTagname, refTagAtributo
 		ref("media", "descriptor", "descriptor", "id");
 		ref("media", "refer", "media", "id");
+		
+		ref("context", "refer", "context", "id");
 
 		ref("descriptor", "region", "region", "id");
 
@@ -438,7 +440,9 @@ public class NCLStructure {
 		ref("bind", "role", "simpleCondition", "role");
 		ref("bind", "role", "simpleAction", "role");
 		ref("bind", "role", "compoundCondition", "role");
-		ref("bind", "role", "compoundAction", "role");		
+		ref("bind", "role", "compoundAction", "role");
+		ref("bind", "interface", "area", "id");
+		ref("bind", "interface", "port", "id");
 		
 		ref("link", "xconnector", "causalConnector", "id");
 		
