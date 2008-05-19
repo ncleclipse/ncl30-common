@@ -421,19 +421,24 @@ public class NCLStructure {
 	
 	//Referências
 		//tagname, atributo, refTagname, refTagAtributo
+		//media
 		ref("media", "descriptor", "descriptor", "id");
 		ref("media", "refer", "media", "id");
 		
+		//context
 		ref("context", "refer", "context", "id");
 
+		//descriptor
 		ref("descriptor", "region", "region", "id");
 
+		//port
 		ref("port", "component", "media", "id");
 		ref("port", "component", "context", "id");
 		ref("port", "component", "switch", "id");
 		ref("port", "interface", "area", "id");
 		ref("port", "interface", "port", "id");
 		
+		//bind
 		ref("bind", "component", "media", "id");
 		ref("bind", "component", "context", "id");
 		ref("bind", "component", "switch", "id");
@@ -443,8 +448,34 @@ public class NCLStructure {
 		ref("bind", "role", "compoundAction", "role");
 		ref("bind", "interface", "area", "id");
 		ref("bind", "interface", "port", "id");
+		ref("bind", "descriptor", "descriptor", "id");
 		
+		//bindRule
+		ref("bindRule", "constituint", "media", "id");
+		ref("bindRule", "constituint", "context", "id");
+		ref("bindRule", "constituint", "switch", "id");
+		
+		//link
 		ref("link", "xconnector", "causalConnector", "id");
+		
+		//linkParam
+		ref("linkParam", "name", "connectorParam", "name");
+		//switch
+		ref("switch", "refer", "switch", "id");
+		
+		
+		//mapping
+		ref("mapping", "component", "media", "id");
+		ref("mapping", "component", "context", "id");
+		ref("mapping", "component", "switch", "id");
+		
+		//defaultComponent
+		ref("defaultComponent", "component", "media", "id");
+		ref("defaultComponent", "component", "context", "id");
+		ref("defaultComponent", "component", "switch", "id");
+		
+		//defaultDescriptor
+		ref("defaultDescriptor", "descriptor", "descriptor", "id");
 		
 	}
 
@@ -656,3 +687,4 @@ public class NCLStructure {
 		return null;
 	}
 }
+
