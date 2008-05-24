@@ -309,7 +309,7 @@ public class NCLStructure {
 		att("attributeAssessment", "role", true);
 		att("attributeAssessment", "eventType", true);
 		att("attributeAssessment", "key", false);
-		att("attributeAssessment", "attributeType", true);
+		att("attributeAssessment", "attributeType", false); // salles disse q é opcional em 21/05/2008
 		att("attributeAssessment", "offset", false);
 	
 		//valueAssessment
@@ -449,6 +449,9 @@ public class NCLStructure {
 		ref("bind", "interface", "area", "id");
 		ref("bind", "interface", "port", "id");
 		ref("bind", "descriptor", "descriptor", "id");
+		
+		//bindParam
+		//ref("bindParam", "name", "connectorParam", "name");
 		
 		//bindRule
 		ref("bindRule", "constituint", "media", "id");
