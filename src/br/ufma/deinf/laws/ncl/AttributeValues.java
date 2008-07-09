@@ -47,6 +47,32 @@ public class AttributeValues {
 			ret.add("systemScreen(i)");
 			ret.add("systemAudio(i)");
 		}
+		if(type == DataType.COMPARATOR){
+			ret.add("eq");
+			ret.add("ne");
+			ret.add("gt");
+			ret.add("ge");
+			ret.add("lt");
+			ret.add("le");
+		}
+		if(type == DataType.SIMPLEACTION_ROLE){
+			ret.add("start");
+			ret.add("stop");
+			ret.add("abort");
+			ret.add("pause");
+			ret.add("resume");
+			ret.add("set");
+		}
+		if(type == DataType.SIMPLECONDITION_ROLE){
+			ret.add("onBegin");
+			ret.add("onEnd");
+			ret.add("onAbort");
+			ret.add("onPause");
+			ret.add("onResume");
+			ret.add("onSelection");
+			ret.add("onBeginAttribution");
+			ret.add("onEndAttribution");
+		}
 		return ret;
 	}
 }

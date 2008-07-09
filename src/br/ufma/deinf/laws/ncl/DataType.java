@@ -92,6 +92,9 @@ public class DataType {
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
 	public static final int DEVICE = 15; //validação feita no semântico (gera um warning).
+	public static final int COMPARATOR = 16;
+	public static final int SIMPLEACTION_ROLE = 17;
+	public static final int SIMPLECONDITION_ROLE = 18;
 	
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -197,6 +200,14 @@ public class DataType {
 	public static boolean isInstance(String value) {
 		return value.equals("new") || value.equals("instSame") || value.equals("gradSame");
 	}
+	public static boolean isComparator(String value) {
+		return value.equals("eq") 
+				|| value.equals("ne")
+				|| value.equals("gt")
+				|| value.equals("ge")
+				|| value.equals("lt")
+				|| value.equals("le");
+	}
 	public static boolean isDataType(int dataType, String value){
 		boolean ok = true;
 		switch(dataType){
@@ -244,6 +255,9 @@ public class DataType {
 				break;	
 			case DataType.INSTANCE:
 				if(!DataType.isInstance(value)) ok = false;
+				break;
+			case DataType.COMPARATOR:
+				if(!DataType.isComparator(value)) ok = false;
 				break;
 		}
 		return ok;

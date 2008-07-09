@@ -262,7 +262,7 @@ public class NCLStructure {
 		att("connectorParam", "type", false);
 	
 		//simpleCondition
-		att("simpleCondition", "role", true, DataType.ID);
+		att("simpleCondition", "role", true, DataType.SIMPLECONDITION_ROLE);
 		att("simpleCondition", "delay", false);
 		att("simpleCondition", "eventType", false);
 		att("simpleCondition", "key", false);
@@ -280,7 +280,7 @@ public class NCLStructure {
 		ct("compoundCondition", "compoundStatement", '*');
 		
 		//simpleAction
-		att("simpleAction", "role", true, DataType.ID);
+		att("simpleAction", "role", true, DataType.SIMPLEACTION_ROLE);
 		att("simpleAction", "delay", false);
 		att("simpleAction", "eventType", false);
 		att("simpleAction", "actionType", false);
@@ -337,7 +337,7 @@ public class NCLStructure {
 		//rule
 		att("rule", "id", true, DataType.ID);
 		att("rule", "var", true);
-		att("rule", "comparator", true);
+		att("rule", "comparator", true, DataType.COMPARATOR);
 		att("rule", "value", true);
 	
 		//compositeRule
