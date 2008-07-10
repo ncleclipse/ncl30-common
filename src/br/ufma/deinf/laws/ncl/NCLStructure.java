@@ -463,6 +463,9 @@ public class NCLStructure {
 		
 		//linkParam
 		ref("linkParam", "name", "connectorParam", "name");
+		//bindParam
+		ref("bindParam", "name", "connectorParam", "name");
+		
 		//switch
 		ref("switch", "refer", "switch", "id");
 		
