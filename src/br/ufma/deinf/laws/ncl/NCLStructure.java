@@ -448,6 +448,7 @@ public class NCLStructure {
 		ref("bind", "role", "compoundAction", "role");
 		ref("bind", "interface", "area", "id");
 		ref("bind", "interface", "port", "id");
+		ref("bind", "interface", "property", "name");
 		ref("bind", "descriptor", "descriptor", "id");
 		
 		//bindParam
