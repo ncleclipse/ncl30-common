@@ -148,7 +148,7 @@ public class DataType {
 	//FORMATO: 9s, 90s, 11s
 	//Tem minuto e hora também???
 	public static boolean isTime(String str){
-		Pattern p = Pattern.compile("^[0-9]*[s]$");
+		Pattern p = Pattern.compile("^[0-9]*[.]?[0-9]*[s]$");
 	    Matcher m = p.matcher(str);
 
 	    return m.matches();
@@ -179,7 +179,7 @@ public class DataType {
 
 	    if(m.matches()) return true;
 	    
-	    p = Pattern.compile("^[0-9]*%$");
+	    p = Pattern.compile("^[0-9]*[.]?[0-9]*[%]$");
 	    m = p.matcher(str);
 	    return m.matches();
 	}
