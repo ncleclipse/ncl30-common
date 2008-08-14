@@ -309,7 +309,7 @@ public class NCLStructure {
 		att("attributeAssessment", "role", true);
 		att("attributeAssessment", "eventType", true);
 		att("attributeAssessment", "key", false);
-		att("attributeAssessment", "attributeType", false); // salles disse q é opcional em 21/05/2008
+		att("attributeAssessment", "attributeType", false); // salles disse q ï¿½ opcional em 21/05/2008
 		att("attributeAssessment", "offset", false);
 	
 		//valueAssessment
@@ -419,7 +419,7 @@ public class NCLStructure {
 		//att("metadata", null, false);
 			//TODO: "RDF tree" as child
 	
-	//Referências
+	//Referï¿½ncias
 		//tagname, atributo, refTagname, refTagAtributo
 		//media
 		ref("media", "descriptor", "descriptor", "id");
@@ -437,7 +437,7 @@ public class NCLStructure {
 		ref("port", "component", "switch", "id");
 		ref("port", "interface", "area", "id");
 		ref("port", "interface", "port", "id");
-		//ref("port", "interface", "property", "name"); //Dúvida! Verificar isto!
+		//ref("port", "interface", "property", "name"); //Dï¿½vida! Verificar isto!
 		
 		//bind
 		ref("bind", "component", "media", "id");
@@ -476,6 +476,9 @@ public class NCLStructure {
 		ref("mapping", "component", "media", "id");
 		ref("mapping", "component", "context", "id");
 		ref("mapping", "component", "switch", "id");
+		ref("mapping", "interface", "area", "id");
+		ref("mapping", "interface", "port", "id");
+		ref("mapping", "interface", "property", "name");
 		
 		//defaultComponent
 		ref("defaultComponent", "component", "media", "id");

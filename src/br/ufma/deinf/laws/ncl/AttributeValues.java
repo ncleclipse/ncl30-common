@@ -6,6 +6,7 @@ public class AttributeValues {
 	public static Vector<String> getValues(int type){
 		Vector <String> ret = new Vector<String>(); 
 		if(type == DataType.XMLNS){
+			ret.add("http://www.ncl.org.br/NCL3.0/LanguageProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/EDTVProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/BDTVProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/CausalConnectorProfile");
