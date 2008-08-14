@@ -64,10 +64,9 @@ package br.ufma.deinf.laws.ncl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import br.ufma.deinf.laws.ncl.DataType;
 
 /**
  * Classe responsÃ¡vel por validar os tipos bÃ¡sicos da linguagem NCL.
@@ -91,10 +90,11 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
-	public static final int DEVICE = 15; //validação feita no semântico (gera um warning).
+	public static final int DEVICE = 15; //validaï¿½ï¿½o feita no semï¿½ntico (gera um warning).
 	public static final int COMPARATOR = 16;
 	public static final int SIMPLEACTION_ROLE = 17;
 	public static final int SIMPLECONDITION_ROLE = 18;
+	public static final int COLOR = 19;
 	
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -186,7 +186,7 @@ public class DataType {
 	
 	public static boolean isMediaDescription(String value) {
 		// TODO Auto-generated method stub
-		//	Está sendo validado no Semântico
+		//	Estï¿½ sendo validado no Semï¿½ntico
 		return true;
 	}
 	
@@ -260,10 +260,20 @@ public class DataType {
 			case DataType.COMPARATOR:
 				if(!DataType.isComparator(value)) ok = false;
 				break;
+			case DataType.COLOR:
+				if(!DataType.isColor(value)) ok = false;
+				break;
 		}
 		return ok;
 	}
 	
+	private static boolean isColor(String value) {
+		// TODO Auto-generated method stub
+		Vector <String> values = AttributeValues.getValues(DataType.COLOR);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
 	private static boolean isSyncronismOperator(String value) {
 		return value.equals("par") || value.equals("seq");
 	}

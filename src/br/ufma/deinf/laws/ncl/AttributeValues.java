@@ -74,6 +74,24 @@ public class AttributeValues {
 			ret.add("onBeginAttribution");
 			ret.add("onEndAttribution");
 		}
+		if(type == DataType.COLOR){
+			ret.add("white");
+			ret.add("black");
+			ret.add("silver");
+			ret.add("gray");
+			ret.add("red");
+			ret.add("marron");
+			ret.add("fuchsia");
+			ret.add("purple");
+			ret.add("lime");
+			ret.add("green");
+			ret.add("yellow");
+			ret.add("olive");
+			ret.add("blue");
+			ret.add("navy");
+			ret.add("aqua");
+			ret.add("teal");
+		}
 		return ret;
 	}
 }

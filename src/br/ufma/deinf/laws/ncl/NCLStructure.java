@@ -430,7 +430,9 @@ public class NCLStructure {
 
 		//descriptor
 		ref("descriptor", "region", "region", "id");
-
+		//ref("descriptor", "transIn", "transition", "id");
+		//ref("descriptor", "transOut", "transition", "id");
+		
 		//port
 		ref("port", "component", "media", "id");
 		ref("port", "component", "context", "id");
