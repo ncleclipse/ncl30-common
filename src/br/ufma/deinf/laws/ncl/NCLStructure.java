@@ -206,12 +206,12 @@ public class NCLStructure {
 		att("descriptor", "moveDown", false);
 		att("descriptor", "moveUp", false);
 		att("descriptor", "focusIndex", false);
-		att("descriptor", "focusBorderColor", false);
+		att("descriptor", "focusBorderColor", false, DataType.COLOR);
 		att("descriptor", "focusBorderWidth", false);
 		att("descriptor", "focusBorderTransparency", false);
 		att("descriptor", "focusSrc", false, DataType.URI); // é isso mesmo ??
 		att("descriptor", "focusSelSrc", false, DataType.URI); // é isso mesmo ??
-		att("descriptor", "selBorderColor", false);
+		att("descriptor", "selBorderColor", false, DataType.COLOR);
 		att("descriptor", "transIn", false);
 		att("descriptor", "transOut", false);
 		ct("descriptor", "descriptorParam", '*');
