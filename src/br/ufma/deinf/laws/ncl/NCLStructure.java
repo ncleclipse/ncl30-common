@@ -264,9 +264,9 @@ public class NCLStructure {
 		//simpleCondition
 		att("simpleCondition", "role", true, DataType.SIMPLECONDITION_ROLE);
 		att("simpleCondition", "delay", false);
-		att("simpleCondition", "eventType", false);
-		att("simpleCondition", "key", false);
-		att("simpleCondition", "transition", false);
+		att("simpleCondition", "eventType", false, DataType.EVENT);
+		att("simpleCondition", "key", false, DataType.KEY);
+		att("simpleCondition", "transition", false, DataType.TRANSITION);
 		att("simpleCondition", "min", false, DataType.QUANTITY);
 		att("simpleCondition", "max", false, DataType.QUANTITY);
 		att("simpleCondition", "qualifier", false, DataType.BOOLEAN_OPERATOR);
@@ -282,8 +282,8 @@ public class NCLStructure {
 		//simpleAction
 		att("simpleAction", "role", true, DataType.SIMPLEACTION_ROLE);
 		att("simpleAction", "delay", false);
-		att("simpleAction", "eventType", false);
-		att("simpleAction", "actionType", false);
+		att("simpleAction", "eventType", false, DataType.EVENT);
+		att("simpleAction", "actionType", false, DataType.ACTION);
 		att("simpleAction", "value", false);
 		att("simpleAction", "min", false, DataType.QUANTITY);
 		att("simpleAction", "max", false, DataType.QUANTITY);
@@ -307,7 +307,7 @@ public class NCLStructure {
 	
 		//attributeAssessment
 		att("attributeAssessment", "role", true);
-		att("attributeAssessment", "eventType", true);
+		att("attributeAssessment", "eventType", true, DataType.EVENT);
 		att("attributeAssessment", "key", false);
 		att("attributeAssessment", "attributeType", false); // salles disse q � opcional em 21/05/2008
 		att("attributeAssessment", "offset", false);

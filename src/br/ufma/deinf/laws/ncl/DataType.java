@@ -95,6 +95,10 @@ public class DataType {
 	public static final int SIMPLEACTION_ROLE = 17;
 	public static final int SIMPLECONDITION_ROLE = 18;
 	public static final int COLOR = 19;
+	public static final int EVENT = 20;
+	public static final int TRANSITION = 21;
+	public static final int KEY = 22;
+	public static final int ACTION = 23;
 	
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -263,10 +267,48 @@ public class DataType {
 			case DataType.COLOR:
 				if(!DataType.isColor(value)) ok = false;
 				break;
+			case DataType.EVENT:
+				if(!DataType.isEvent(value)) ok = false;
+				break;
+			case DataType.TRANSITION:
+				if(!DataType.isTransition(value)) ok = false;
+				break;
+			case DataType.KEY:
+				if(!DataType.isKey(value)) ok = false;
+				break;
+			case DataType.ACTION:
+				if(!DataType.isAction(value)) ok = false;
+				break;
 		}
 		return ok;
 	}
 	
+	private static boolean isAction(String value) {
+		// TODO Auto-generated method stub
+		Vector <String> values = AttributeValues.getValues(DataType.ACTION);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
+	private static boolean isKey(String value) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	private static boolean isTransition(String value) {
+		// TODO Auto-generated method stub
+		Vector <String> values = AttributeValues.getValues(DataType.TRANSITION);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
+	private static boolean isEvent(String value) {
+		// TODO Auto-generated method stub
+		Vector <String> values = AttributeValues.getValues(DataType.EVENT);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
 	private static boolean isColor(String value) {
 		// TODO Auto-generated method stub
 		Vector <String> values = AttributeValues.getValues(DataType.COLOR);
