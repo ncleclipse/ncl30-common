@@ -62,8 +62,11 @@ http://www.gia.deinf.ufma.br/~labmint/
 *******************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -160,11 +163,17 @@ public class DataType {
 	
 	public static boolean isUri(String str){
 		try {
-			URI uri = new URI(str);
+			//URL url = new URL(str);
+			URI uri = new URI(URLEncoder.encode(str, "UTF-8"));
 			return true;
-		} catch (URISyntaxException e) {
-			return false;
+		}catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return false;
 	}
 	
 	//Conjutndo de letras ou numeros começando com uma letra
