@@ -102,6 +102,9 @@ public class DataType {
 	public static final int TRANSITION = 21;
 	public static final int KEY = 22;
 	public static final int ACTION = 23;
+	public static final int TRANSITION_TYPE = 24;
+	public static final int TRANSITION_SUBTYPE = 25;
+	public static final int DIRECTION = 26;
 	
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -288,10 +291,39 @@ public class DataType {
 			case DataType.ACTION:
 				if(!DataType.isAction(value)) ok = false;
 				break;
+			case DataType.TRANSITION_TYPE:
+				if(!DataType.isTransitionType(value)) ok = false;
+				break;
+			case DataType.DIRECTION:
+				if(!DataType.isDirection(value)) ok = false;
+				break;
+			/*
+			 * Implementar
+			 * case DataType.TRANSITION_SUBTYPE:
+				if(!DataType.isTransitionSubType(value)) ok = false;
+				break; */
 		}
 		return ok;
 	}
 	
+	private static boolean isDirection(String value) {
+		Vector <String> values = AttributeValues.getValues(DataType.DIRECTION);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
+	private static boolean isTransitionSubType(String value) {
+		Vector <String> values = AttributeValues.getValues(DataType.TRANSITION_SUBTYPE);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
+	private static boolean isTransitionType(String value) {
+		Vector <String> values = AttributeValues.getValues(DataType.TRANSITION_TYPE);
+		if(values.contains(value)) return true;
+		return false;
+	}
+
 	private static boolean isAction(String value) {
 		// TODO Auto-generated method stub
 		Vector <String> values = AttributeValues.getValues(DataType.ACTION);

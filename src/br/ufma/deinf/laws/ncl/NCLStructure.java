@@ -398,17 +398,17 @@ public class NCLStructure {
 	//Extended BasicTransition module
 		//transition
 		att("transition", "id", true, DataType.ID);
-		att("transition", "type", true);
+		att("transition", "type", true, DataType.TRANSITION_TYPE);
 		att("transition", "subtype", false);
-		att("transition", "dur", false);
+		att("transition", "dur", false, DataType.TIME);
 		att("transition", "startProgress", false);
 		att("transition", "endProgress", false);
-		att("transition", "direction", false);
-		att("transition", "fadeColor", false);
-		att("transition", "horRepeat", false);
-		att("transition", "vertRepeat", false);
-		att("transition", "borderWidth", false);
-		att("transition", "borderColor", false);
+		att("transition", "direction", false, DataType.DIRECTION);
+		att("transition", "fadeColor", false, DataType.COLOR);
+		att("transition", "horRepeat", false, DataType.INTEGER);
+		att("transition", "vertRepeat", false, DataType.INTEGER);
+		att("transition", "borderWidth", false, DataType.INTEGER);
+		att("transition", "borderColor", false, DataType.COLOR);
 	
 	//Extended Metainformation module
 		//meta
@@ -458,9 +458,11 @@ public class NCLStructure {
 		//ref("bindParam", "name", "connectorParam", "name");
 		
 		//bindRule
-		ref("bindRule", "constituint", "media", "id");
-		ref("bindRule", "constituint", "context", "id");
-		ref("bindRule", "constituint", "switch", "id");
+		ref("bindRule", "constituent", "media", "id");
+		ref("bindRule", "constituent", "context", "id");
+		ref("bindRule", "constituent", "switch", "id");
+		ref("bindRule", "rule", "rule", "id");
+		ref("bindRule", "rule", "compositeRule", "id");
 		
 		//link
 		ref("link", "xconnector", "causalConnector", "id");
@@ -472,7 +474,6 @@ public class NCLStructure {
 		
 		//switch
 		ref("switch", "refer", "switch", "id");
-		
 		
 		//mapping
 		ref("mapping", "component", "media", "id");

@@ -176,6 +176,20 @@ public class AttributeValues {
 			ret.add("RECORD");
 			ret.add("PAUSE");
 		}
+		if(type == DataType.TRANSITION_TYPE){
+			ret.add("barWipe");
+			ret.add("irisWipe");
+			ret.add("clockWipe");
+			ret.add("snackWipe");
+			ret.add("fade");
+		}
+		if(type == DataType.TRANSITION_SUBTYPE){
+			//implementar
+		}
+		if(type == DataType.DIRECTION){
+			ret.add("forward");
+			ret.add("reverse");
+		}
 		return ret;
 	}
 }
