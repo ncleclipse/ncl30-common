@@ -430,8 +430,8 @@ public class NCLStructure {
 
 		//descriptor
 		ref("descriptor", "region", "region", "id");
-		//ref("descriptor", "transIn", "transition", "id");
-		//ref("descriptor", "transOut", "transition", "id");
+		ref("descriptor", "transIn", "transition", "id");
+		ref("descriptor", "transOut", "transition", "id");
 		
 		//port
 		ref("port", "component", "media", "id");
@@ -447,8 +447,9 @@ public class NCLStructure {
 		ref("bind", "component", "switch", "id");
 		ref("bind", "role", "simpleCondition", "role");
 		ref("bind", "role", "simpleAction", "role");
-		ref("bind", "role", "compoundCondition", "role");
-		ref("bind", "role", "compoundAction", "role");
+		ref("bind", "role", "attributeAssessment", "role");
+		//ref("bind", "role", "compoundCondition", "role");
+		//ref("bind", "role", "compoundAction", "role");
 		ref("bind", "interface", "area", "id");
 		ref("bind", "interface", "port", "id");
 		ref("bind", "interface", "property", "name");
