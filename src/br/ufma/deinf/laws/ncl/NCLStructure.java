@@ -416,6 +416,7 @@ public class NCLStructure {
 		//tagname, atributo, refTagname, refTagAtributo
 		//media
 		ref("media", "descriptor", "descriptor", "id");
+		ref("media", "descriptor", "descriptorSwitch", "id");
 		ref("media", "refer", "media", "id");
 		
 		//context
@@ -455,6 +456,7 @@ public class NCLStructure {
 		ref("bindRule", "constituent", "media", "id");
 		ref("bindRule", "constituent", "context", "id");
 		ref("bindRule", "constituent", "switch", "id");
+		ref("bindRule", "constituent", "descriptor", "id");
 		ref("bindRule", "rule", "rule", "id");
 		ref("bindRule", "rule", "compositeRule", "id");
 		
