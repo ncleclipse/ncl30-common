@@ -421,6 +421,8 @@ public class NCLStructure {
 		
 		//context
 		ref("context", "refer", "context", "id");
+		ref("context", "refer", "body", "id");
+		ref("context", "refer", "ncl", "id");
 
 		//descriptor
 		ref("descriptor", "region", "region", "id");
