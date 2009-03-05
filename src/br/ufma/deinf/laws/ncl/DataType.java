@@ -94,6 +94,7 @@ public class DataType {
 	public static final int TRANSITION_TYPE = 24;
 	public static final int TRANSITION_SUBTYPE = 25;
 	public static final int DIRECTION = 26;
+	public static final int BOOLEAN_VALUE = 27;
 
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -323,8 +324,19 @@ public class DataType {
 			if (!DataType.isTransitionSubType(value))
 				ok = false;
 			break;
+		case DataType.BOOLEAN_VALUE:
+			if (!DataType.isBooleanValue(value))
+				ok = false;
+			break;
 		}
 		return ok;
+	}
+
+	private static boolean isBooleanValue(String value) {
+		Vector<String> values = AttributeValues.getValues(DataType.BOOLEAN_VALUE);
+		if (values.contains(value))
+			return true;
+		return false;
 	}
 
 	private static boolean isDirection(String value) {

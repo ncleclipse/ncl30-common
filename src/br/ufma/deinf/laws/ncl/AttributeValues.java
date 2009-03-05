@@ -239,6 +239,10 @@ public class AttributeValues {
 			ret.add("forward");
 			ret.add("reverse");
 		}
+		if(type == DataType.BOOLEAN_VALUE){
+			ret.add("true");
+			ret.add("false");
+		}
 		return ret;
 	}
 }
