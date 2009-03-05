@@ -221,8 +221,8 @@ public class NCLStructure {
 	
 	//Extended Linking Module
 		//bind
-		att("bind", "role", true, DataType.ID);
 		att("bind", "component", true, DataType.ID);
+		att("bind", "role", true, DataType.ID);
 		att("bind", "interface", false, DataType.ID);
 		att("bind", "descriptor", false, DataType.ID);
 		ct("bind", "bindParam", '*');
@@ -293,7 +293,7 @@ public class NCLStructure {
 		ct("compoundAction", "compoundAction", '#');
 	
 		//assessmentStatement
-		att("assessmentStatement", "comparator", true);
+		att("assessmentStatement", "comparator", true, DataType.COMPARATOR);
 		//TODO: attributeAssessment ( attributeAssessment | valueAssessment )
 		ct("assessmentStatement", "attributeAssessment", '*');
 		ct("assessmentStatement", "valueAssessment", '*');
@@ -301,7 +301,7 @@ public class NCLStructure {
 		//attributeAssessment
 		att("attributeAssessment", "role", true);
 		att("attributeAssessment", "eventType", true, DataType.EVENT);
-		att("attributeAssessment", "key", false);
+		att("attributeAssessment", "key", false, DataType.KEY);
 		att("attributeAssessment", "attributeType", false); // salles disse q � opcional em 21/05/2008
 		att("attributeAssessment", "offset", false);
 	
