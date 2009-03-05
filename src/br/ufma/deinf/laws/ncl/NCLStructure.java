@@ -310,7 +310,7 @@ public class NCLStructure {
 		
 		//compoundStatement
 		att("compoundStatement", "operator", true, DataType.BOOLEAN_OPERATOR);
-		att("compoundStatement", "isNegated", false);
+		att("compoundStatement", "isNegated", false, DataType.BOOLEAN_VALUE);
 		ct("compoundStatement", "assessmentStatement", '#');
 		ct("compoundStatement", "compoundStatement", '#');
 	
