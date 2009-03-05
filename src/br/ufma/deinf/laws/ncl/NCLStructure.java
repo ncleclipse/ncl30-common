@@ -392,7 +392,7 @@ public class NCLStructure {
 		//transition
 		att("transition", "id", true, DataType.ID);
 		att("transition", "type", true, DataType.TRANSITION_TYPE);
-		att("transition", "subtype", false);
+		att("transition", "subtype", false, DataType.TRANSITION_SUBTYPE);
 		att("transition", "dur", false, DataType.TIME);
 		att("transition", "startProgress", false);
 		att("transition", "endProgress", false);
