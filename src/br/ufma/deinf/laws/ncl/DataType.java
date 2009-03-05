@@ -205,12 +205,9 @@ public class DataType {
 		return value.equals("new") || value.equals("instSame") || value.equals("gradSame");
 	}
 	public static boolean isComparator(String value) {
-		return value.equals("eq") 
-				|| value.equals("ne")
-				|| value.equals("gt")
-				|| value.equals("ge")
-				|| value.equals("lt")
-				|| value.equals("le");
+		Vector <String> values = AttributeValues.getValues(DataType.COMPARATOR);
+		if(values.contains(value)) return true;
+		return false;
 	}
 	public static boolean isDataType(int dataType, String value){
 		boolean ok = true;
