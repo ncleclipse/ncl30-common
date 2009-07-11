@@ -166,6 +166,11 @@ public class NCLStructure {
 		att("area", "first", false, DataType.INTEGER);
 		att("area", "last", false, DataType.INTEGER);
 		att("area", "label", false, DataType.STRING);
+		
+		//ainda nao faz parte da norma
+		att("area", "clip", false, DataType.STRING);
+		att("area", "beginOffset", false, DataType.STRING);
+		att("area", "endOffset", false, DataType.STRING);
 	
 	//Extended CompositeNodeInterface Module
 		//port
