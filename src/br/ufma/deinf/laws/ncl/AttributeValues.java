@@ -87,6 +87,7 @@ public class AttributeValues {
 			ret.add("application/x-ginga-NCLet");
 			ret.add("application/x-ginga-settings");
 			ret.add("application/x-ginga-time");
+			ret.add("application/x-ncl+xml");
 		}
 		if(type == DataType.INSTANCE){
 			ret.add("new");
