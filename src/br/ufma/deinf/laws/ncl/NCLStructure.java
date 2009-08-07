@@ -399,12 +399,12 @@ public class NCLStructure {
 		//media
 		ref("media", "descriptor", "descriptor", "id");
 		ref("media", "descriptor", "descriptorSwitch", "id");
-		//ref("media", "refer", "media", "id"); // isso nao pode mais
+		ref("media", "refer", "media", "id"); 
 		
 		//context
 		ref("context", "refer", "context", "id");
 		ref("context", "refer", "body", "id");
-		ref("context", "refer", "ncl", "id");
+		//ref("context", "refer", "ncl", "id"); // isso nao pode mais
 
 		//descriptor
 		ref("descriptor", "region", "region", "id");
