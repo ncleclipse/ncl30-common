@@ -5,8 +5,10 @@ TODO:
 NEWS:
 Versao 1.4
 2009-08-07
-	CONTEXT.REFER: não pode mais sugerir id de NCL. 
-	NCL.XMLNS: removida sugestao de 'http://www.ncl.org.br/NCL3.0/LanguageProfile'.
+	- regionBase.region: atributo adicionado (opcional)
+	- context.refer: não pode mais sugerir id de NCL. 
+	- ncl.xlmns: removida sugestao de 'http://www.ncl.org.br/NCL3.0/LanguageProfile'.
+	- ncl.id agora é obrigatório
 	
 2009-08-05
 	Sugestao do tipo comparator: Modificado de ge e le para gte e lte, respectivamente.

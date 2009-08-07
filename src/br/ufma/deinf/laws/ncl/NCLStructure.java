@@ -62,7 +62,7 @@ public class NCLStructure {
 	
 	//Extended Structure Module
 		//ncl
-		att("ncl", "id", false, DataType.ID);
+		att("ncl", "id", true, DataType.ID);
 		att("ncl", "title", false, DataType.STRING);
 		att("ncl", "xmlns", false, DataType.XMLNS);
 		att("ncl", "xmlns:xsi", false, DataType.URI);
@@ -94,6 +94,7 @@ public class NCLStructure {
 		//regionBase
 		att("regionBase", "id", false, DataType.ID);
 		att("regionBase", "device", false, DataType.DEVICE);
+		att("regionBase", "region", false, DataType.ID);
 		// Tem q ter pelo menos um dos dois (importBase | region)+
 		ct("regionBase", "importBase", '#');
 		ct("regionBase", "region", '#');
@@ -394,8 +395,12 @@ public class NCLStructure {
 		//att("metadata", null, false);
 			//TODO: "RDF tree" as child
 	
-	//Refer�ncias
+	//Refer�ncias		
 		//tagname, atributo, refTagname, refTagAtributo
+		
+		//regionBase
+		ref("regionBase", "region", "region", "id");
+		
 		//media
 		ref("media", "descriptor", "descriptor", "id");
 		ref("media", "descriptor", "descriptorSwitch", "id");
