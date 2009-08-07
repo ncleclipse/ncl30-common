@@ -3,6 +3,7 @@ TODO:
 
 
 NEWS:
+Versao 1.4
 2009-08-07
 	CONTEXT.REFER: não pode mais sugerir id de NCL. 
 	NCL.XMLNS: removida sugestao de 'http://www.ncl.org.br/NCL3.0/LanguageProfile'.
