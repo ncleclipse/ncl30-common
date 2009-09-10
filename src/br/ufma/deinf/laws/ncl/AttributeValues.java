@@ -1,50 +1,47 @@
-/******************************************************************************
-This file is part of the authoring environment in Nested Context Language -
-NCL Eclipse.
-
-Copyright: 2007-2008 UFMA/LAWS (Laboratory of Advanced Web Systems), All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify it under 
-the terms of the GNU General Public License version 2 as published by
-the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY 
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
-PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more 
-details.
-
-You should have received a copy of the GNU General Public License version 2
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
-
-For further information contact:
-ncleclipse@laws.deinf.ufma.br
-http://www.laws.deinf.ufma.br/ncleclipse
-http://www.laws.deinf.ufma.br
-
-*******************************************************************************/
+/*******************************************************************************
+ * This file is part of the authoring environment in Nested Context Language -
+ * NCL Eclipse.
+ * 
+ * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All Rights Reserved.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under 
+ * the terms of the GNU General Public License version 2 as published by
+ * the Free Software Foundation.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+ * PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more 
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License version 2
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+ * For further information contact:
+ * 		ncleclipse@laws.deinf.ufma.br
+ * 		http://www.laws.deinf.ufma.br/ncleclipse
+ * 		http://www.laws.deinf.ufma.br
+ ********************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
 import java.util.Vector;
 
 public class AttributeValues {
-	public static Vector<String> getValues(int type){
-		Vector <String> ret = new Vector<String>(); 
-		if(type == DataType.XMLNS){
-			//ret.add("http://www.ncl.org.br/NCL3.0/LanguageProfile");
+	public static Vector<String> getValues(int type) {
+		Vector<String> ret = new Vector<String>();
+		if (type == DataType.XMLNS) {
+			// ret.add("http://www.ncl.org.br/NCL3.0/LanguageProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/EDTVProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/BDTVProfile");
 			ret.add("http://www.ncl.org.br/NCL3.0/CausalConnectorProfile");
 		}
-		if(type == DataType.SYNCHRONISM_OPERATOR){
+		if (type == DataType.SYNCHRONISM_OPERATOR) {
 			ret.add("par");
 			ret.add("seq");
 		}
-		if(type == DataType.BOOLEAN_OPERATOR){
+		if (type == DataType.BOOLEAN_OPERATOR) {
 			ret.add("and");
 			ret.add("or");
 		}
-		if(type == DataType.MEDIA_DESCRIPTION){
+		if (type == DataType.MEDIA_DESCRIPTION) {
 			ret.add("text/html");
 			ret.add("text/plain");
 			ret.add("text/css");
@@ -65,16 +62,16 @@ public class AttributeValues {
 			ret.add("application/x-ginga-time");
 			ret.add("application/x-ncl-NCL");
 		}
-		if(type == DataType.INSTANCE){
+		if (type == DataType.INSTANCE) {
 			ret.add("new");
 			ret.add("instSame");
 			ret.add("gradSame");
 		}
-		if(type == DataType.DEVICE){
+		if (type == DataType.DEVICE) {
 			ret.add("systemScreen(i)");
 			ret.add("systemAudio(i)");
 		}
-		if(type == DataType.COMPARATOR){
+		if (type == DataType.COMPARATOR) {
 			ret.add("eq");
 			ret.add("ne");
 			ret.add("gt");
@@ -82,7 +79,7 @@ public class AttributeValues {
 			ret.add("lt");
 			ret.add("lte");
 		}
-		if(type == DataType.SIMPLEACTION_ROLE){
+		if (type == DataType.SIMPLEACTION_ROLE) {
 			ret.add("start");
 			ret.add("stop");
 			ret.add("abort");
@@ -90,7 +87,7 @@ public class AttributeValues {
 			ret.add("resume");
 			ret.add("set");
 		}
-		if(type == DataType.SIMPLECONDITION_ROLE){
+		if (type == DataType.SIMPLECONDITION_ROLE) {
 			ret.add("onBegin");
 			ret.add("onEnd");
 			ret.add("onAbort");
@@ -100,19 +97,19 @@ public class AttributeValues {
 			ret.add("onBeginAttribution");
 			ret.add("onEndAttribution");
 		}
-		if(type == DataType.EVENT){
+		if (type == DataType.EVENT) {
 			ret.add("presentation");
 			ret.add("selection");
 			ret.add("attribution");
 		}
-		if(type == DataType.ACTION){
+		if (type == DataType.ACTION) {
 			ret.add("start");
 			ret.add("stop");
 			ret.add("abort");
 			ret.add("resume");
 			ret.add("pause");
 		}
-		if(type == DataType.COLOR){
+		if (type == DataType.COLOR) {
 			ret.add("white");
 			ret.add("black");
 			ret.add("silver");
@@ -130,14 +127,14 @@ public class AttributeValues {
 			ret.add("aqua");
 			ret.add("teal");
 		}
-		if(type == DataType.TRANSITION){
+		if (type == DataType.TRANSITION) {
 			ret.add("starts");
 			ret.add("stops");
 			ret.add("aborts");
 			ret.add("pauses");
 			ret.add("resumes");
 		}
-		if(type == DataType.KEY){
+		if (type == DataType.KEY) {
 			ret.add("0");
 			ret.add("1");
 			ret.add("2");
@@ -202,25 +199,24 @@ public class AttributeValues {
 			ret.add("RECORD");
 			ret.add("PAUSE");
 		}
-		if(type == DataType.TRANSITION_TYPE){
+		if (type == DataType.TRANSITION_TYPE) {
 			ret.add("barWipe");
 			ret.add("irisWipe");
 			ret.add("clockWipe");
 			ret.add("snackWipe");
 			ret.add("fade");
 		}
-		if(type == DataType.TRANSITION_SUBTYPE){
-			//implementar
+		if (type == DataType.TRANSITION_SUBTYPE) {
+			// implementar
 		}
-		if(type == DataType.DIRECTION){
+		if (type == DataType.DIRECTION) {
 			ret.add("forward");
 			ret.add("reverse");
 		}
-		if(type == DataType.BOOLEAN_VALUE){
+		if (type == DataType.BOOLEAN_VALUE) {
 			ret.add("true");
 			ret.add("false");
 		}
 		return ret;
 	}
 }
-
