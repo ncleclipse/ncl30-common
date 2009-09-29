@@ -681,5 +681,21 @@ public class NCLStructure {
 		}
 		return null;
 	}
+	
+	public Collection getNCLReverseReference(String elementName, String attributeName){
+		Iterator it = references.keySet().iterator();
+		Collection <NCLReference> ret = new ArrayList();
+		while(it.hasNext()){
+			Collection<NCLReference> collection = (Collection<NCLReference>) references.get(it.next());
+			Iterator it2 = collection.iterator();
+			while(it2.hasNext()){
+				NCLReference ref = (NCLReference)it.next();
+				if(ref.getRefAttribute().equals(attributeName) &&
+						ref.getRefTagname().equals(elementName)) ret.add(ref);
+			}
+			return ret;
+		}
+		return null;
+	}
 }
 
