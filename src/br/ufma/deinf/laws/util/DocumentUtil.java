@@ -30,7 +30,7 @@ import java.io.File;
  */
 public class DocumentUtil {
 	public static String getAbsoluteFileName(String path, String fileName) {
-		try {
+		try {			
 			File f = new File(fileName);
 			if(f.isFile() && f.exists()) return fileName;
 			f = new File(path);

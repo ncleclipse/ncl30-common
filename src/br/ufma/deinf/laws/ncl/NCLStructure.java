@@ -689,13 +689,12 @@ public class NCLStructure {
 			Collection<NCLReference> collection = (Collection<NCLReference>) references.get(it.next());
 			Iterator it2 = collection.iterator();
 			while(it2.hasNext()){
-				NCLReference ref = (NCLReference)it.next();
+				NCLReference ref = (NCLReference)it2.next();
 				if(ref.getRefAttribute().equals(attributeName) &&
 						ref.getRefTagname().equals(elementName)) ret.add(ref);
 			}
-			return ret;
 		}
-		return null;
+		return ret;
 	}
 }
 
