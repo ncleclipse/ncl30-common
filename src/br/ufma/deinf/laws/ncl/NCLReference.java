@@ -64,4 +64,8 @@ public class NCLReference {
 	public void setRefAttribute(String refAttribute) {
 		this.refAttribute = refAttribute;
 	}	
+	
+	public String getTagname (){
+		return tagname;
+	}
 }
