@@ -23,7 +23,12 @@
 package br.ufma.deinf.laws.ncl;
 
 import java.util.Vector;
-
+/**
+ * Contains the defaults values of basics data types of NCL.
+ * 
+ * @author Roberto Azevedo
+ * 
+ */
 public class AttributeValues {
 	public static Vector<String> getValues(int type) {
 		Vector<String> ret = new Vector<String>();

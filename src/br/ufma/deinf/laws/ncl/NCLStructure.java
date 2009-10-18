@@ -32,8 +32,10 @@ import java.util.Map;
 import br.ufma.deinf.laws.util.MultiHashMap;
 
 /**
- * Classe que representa a estrutura sintática da linguagem NCL.
- * @author roberto
+ * This class keep the NCL structure language. Useful for validating and
+ * autocomplete.
+ * 
+ * @author Roberto Azevedo
  *
  */
 public class NCLStructure {

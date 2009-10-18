@@ -32,9 +32,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Classe responsável por validar os tipos básicos da linguagem NCL.
+ * This class is responsible for validaing the basics data types
+ * of NCL.
  * 
- * @author roberto
+ * @author Roberto Azevedo
  * 
  */
 public class DataType {

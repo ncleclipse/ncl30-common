@@ -22,6 +22,12 @@
  ********************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
+/**
+ * TODO: Description
+ * 
+ * @author Roberto Azevedo
+ * 
+ */
 public class NCLReference {
 	private String tagname;
 	private String attribute;
