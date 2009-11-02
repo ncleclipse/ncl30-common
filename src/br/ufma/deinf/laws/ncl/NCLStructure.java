@@ -29,6 +29,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.omg.CORBA.DATA_CONVERSION;
+
 import br.ufma.deinf.laws.util.MultiHashMap;
 
 /**
@@ -139,8 +141,8 @@ public class NCLStructure {
 		att("area", "end", false, DataType.TIME);
 		att("area", "text", false, DataType.STRING);
 		att("area", "position", false, DataType.INTEGER); 
-		att("area", "first", false, DataType.INTEGER);
-		att("area", "last", false, DataType.INTEGER);
+		att("area", "first", false, DataType.STRING);
+		att("area", "last", false, DataType.STRING);
 		att("area", "label", false, DataType.STRING);
 		
 		//ainda nao faz parte da norma
