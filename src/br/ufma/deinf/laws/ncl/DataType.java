@@ -2,23 +2,21 @@
  * This file is part of the authoring environment in Nested Context Language -
  * NCL Eclipse.
  * 
- * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All Rights Reserved.
+ * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All
+ * Rights Reserved.
  * 
- * This program is free software; you can redistribute it and/or modify it under 
- * the terms of the GNU General Public License version 2 as published by
- * the Free Software Foundation.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY 
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
- * PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more 
- * details.
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License version 2 as published by the
+ * Free Software Foundation. This program is distributed in the hope that it
+ * will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License version 2 for more details.
  * 
  * You should have received a copy of the GNU General Public License version 2
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
- * For further information contact:
- * 		ncleclipse@laws.deinf.ufma.br
- * 		http://www.laws.deinf.ufma.br/ncleclipse
- * 		http://www.laws.deinf.ufma.br
+ * along with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA For further
+ * information contact: ncleclipse@laws.deinf.ufma.br
+ * http://www.laws.deinf.ufma.br/ncleclipse http://www.laws.deinf.ufma.br
  ********************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
@@ -32,8 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * This class is responsible for validaing the basics data types
- * of NCL.
+ * This class is responsible for validaing the basics data types of NCL.
  * 
  * @author Roberto Azevedo
  * 
@@ -47,7 +44,7 @@ public class DataType {
 	public static final int COORDINATE = 4;
 	public static final int TIME = 5;
 	public static final int URI = 6;
-	public static final int MEDIA_DESCRIPTION = 7;
+	public static final int MIME_TYPE = 7;
 	public static final int SIZE = 8;
 	public static final int XMLNS = 9;
 	public static final int QUANTITY = 10;
@@ -55,8 +52,8 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
-	public static final int DEVICE = 15; // valida��o feita no sem�ntico (gera
-											// um warning).
+	public static final int DEVICE = 15; // validacao feita no semantico (gera
+	// um warning).
 	public static final int COMPARATOR = 16;
 	public static final int SIMPLEACTION_ROLE = 17;
 	public static final int SIMPLECONDITION_ROLE = 18;
@@ -69,6 +66,8 @@ public class DataType {
 	public static final int TRANSITION_SUBTYPE = 25;
 	public static final int DIRECTION = 26;
 	public static final int BOOLEAN_VALUE = 27;
+
+	public static final int ZINDEX = 28;
 
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -172,9 +171,12 @@ public class DataType {
 		return m.matches();
 	}
 
-	public static boolean isMediaDescription(String value) {
-		// TODO Auto-generated method stub
-		// Est� sendo validado no Sem�ntico
+	public static boolean isMIME_TYPE(String value) {
+		/*Vector<String> values = AttributeValues.getValues(DataType.MIME_TYPE);
+		if (values.contains(value))
+			return true; */
+		
+		//validation is in semantics
 		return true;
 	}
 
@@ -230,8 +232,8 @@ public class DataType {
 			if (!DataType.isUri(value))
 				ok = false;
 			break;
-		case DataType.MEDIA_DESCRIPTION:
-			if (!DataType.isMediaDescription(value))
+		case DataType.MIME_TYPE:
+			if (!DataType.isMIME_TYPE(value))
 				ok = false;
 			break;
 		case DataType.SIZE:
@@ -302,12 +304,17 @@ public class DataType {
 			if (!DataType.isBooleanValue(value))
 				ok = false;
 			break;
+		case DataType.ZINDEX:
+			if (!DataType.isZIndex(value))
+				ok = false;
+			break;
 		}
 		return ok;
 	}
 
 	private static boolean isBooleanValue(String value) {
-		Vector<String> values = AttributeValues.getValues(DataType.BOOLEAN_VALUE);
+		Vector<String> values = AttributeValues
+				.getValues(DataType.BOOLEAN_VALUE);
 		if (values.contains(value))
 			return true;
 		return false;
@@ -395,6 +402,18 @@ public class DataType {
 		} catch (Exception e) {
 			// TODO: handle exception
 			return value.equals("unbounded");
+		}
+		return true;
+	}
+	
+	private static boolean isZIndex(String value) {
+		// TODO Auto-generated method stub
+		try {
+			Integer t = new Integer(value);
+			if (t.intValue() < 0 || t.intValue() > 255)
+				return false;
+		} catch (Exception e) {
+			return false;
 		}
 		return true;
 	}

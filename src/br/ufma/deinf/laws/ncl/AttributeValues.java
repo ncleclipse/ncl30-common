@@ -46,13 +46,14 @@ public class AttributeValues {
 			ret.add("and");
 			ret.add("or");
 		}
-		if (type == DataType.MEDIA_DESCRIPTION) {
+		if (type == DataType.MIME_TYPE) {
 			ret.add("text/html");
 			ret.add("text/plain");
 			ret.add("text/css");
 			ret.add("text/xml");
 			ret.add("image/bmp");
 			ret.add("image/png");
+			ret.add("image/mng");
 			ret.add("image/gif");
 			ret.add("image/jpeg");
 			ret.add("audio/basic");
@@ -61,17 +62,24 @@ public class AttributeValues {
 			ret.add("audio/mpeg");
 			ret.add("audio/mpeg4");
 			ret.add("video/mpeg");
-			ret.add("application/x-ginga-NCLua");
-			ret.add("application/x-ginga-NCLet");
-			ret.add("application/x-ginga-settings");
-			ret.add("application/x-ginga-time");
+			ret.add("applications/x-ginga-NCL");
 			ret.add("application/x-ncl-NCL");
+			ret.add("application/x-ginga-NCLua");
+			ret.add("application/x-ncl-NCLua");
+			ret.add("application/x-ginga-NCLet");
+			ret.add("application/x-ncl-NCLet");
+			ret.add("application/x-ginga-settings");
+			ret.add("application/x-ncl-settings");
+			ret.add("application/x-ginga-time");
+			ret.add("application/x-ncl-time");
 		}
+		
 		if (type == DataType.INSTANCE) {
 			ret.add("new");
 			ret.add("instSame");
 			ret.add("gradSame");
 		}
+		
 		if (type == DataType.DEVICE) {
 			ret.add("systemScreen(i)");
 			ret.add("systemAudio(i)");

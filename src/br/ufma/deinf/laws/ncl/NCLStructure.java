@@ -108,7 +108,7 @@ public class NCLStructure {
 		att("region", "bottom", false, DataType.SIZE);
 		att("region", "height", false, DataType.SIZE);
 		att("region", "width", false, DataType.SIZE);
-		att("region", "zIndex", false, DataType.INTEGER); // pode ser negativo (não ta funcionando)
+		att("region", "zIndex", false, DataType.ZINDEX); // pode ser negativo (não ta funcionando)
 		ct("region", "region", '*');
 	
 	//Extended Media Module
@@ -117,7 +117,7 @@ public class NCLStructure {
 		att("media", "src", false, DataType.URI);
 		att("media", "refer", false, DataType.ID);
 		att("media", "instance", false, DataType.INSTANCE); // new, instSame, gradSame
-		att("media", "type", false, DataType.MEDIA_DESCRIPTION); // Não ta funcionando
+		att("media", "type", false, DataType.MIME_TYPE); // Não ta funcionando
 		att("media", "descriptor", false, DataType.ID);
 		ct("media", "area", '*');
 		ct("media", "property", '*');
