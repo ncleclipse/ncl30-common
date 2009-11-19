@@ -3,12 +3,18 @@ TODO:
 
 
 NEWS:
+Versao 1.4.6
+2009-11-19
+	- Novo DataType ZINDEX. ValidaÃ§Ã£o ok
+	- Description_MEDIA agora eh MIME_TYPE. Valores possiveis do MIME_TYPE atualizados. (AtributeValues)
+	-
+	
 Versao 1.4
 2009-08-07
 	- regionBase.region: atributo adicionado (opcional)
-	- context.refer: não pode mais sugerir id de NCL. 
+	- context.refer: nao pode mais sugerir id de NCL. 
 	- ncl.xlmns: removida sugestao de 'http://www.ncl.org.br/NCL3.0/LanguageProfile'.
-	- ncl.id agora é obrigatório
+	- ncl.id agora eh obrigatorio
 	
 2009-08-05
 	Sugestao do tipo comparator: Modificado de ge e le para gte e lte, respectivamente.
