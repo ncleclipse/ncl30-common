@@ -149,6 +149,7 @@ public class DataType {
 	}
 
 	// Conjutndo de letras ou numeros começando com uma letra
+	//TODO: Identificador pode comecar com _
 	public static boolean isId(String str) {
 		Pattern p = Pattern.compile("^[a-zA-Z].*$");
 		Matcher m = p.matcher(str);
@@ -181,7 +182,6 @@ public class DataType {
 	}
 
 	public static boolean isXMLNS(String value) {
-		// TODO Auto-generated method stub
 		return (value.equals("http://www.ncl.org.br/NCL3.0/EDTVProfile")
 				|| value.equals("http://www.ncl.org.br/NCL3.0/BDTVProfile")
 				|| value
@@ -344,7 +344,6 @@ public class DataType {
 	}
 
 	private static boolean isAction(String value) {
-		// TODO Auto-generated method stub
 		Vector<String> values = AttributeValues.getValues(DataType.ACTION);
 		if (values.contains(value))
 			return true;
@@ -352,12 +351,10 @@ public class DataType {
 	}
 
 	private static boolean isKey(String value) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	private static boolean isTransition(String value) {
-		// TODO Auto-generated method stub
 		Vector<String> values = AttributeValues.getValues(DataType.TRANSITION);
 		if (values.contains(value))
 			return true;
@@ -365,7 +362,6 @@ public class DataType {
 	}
 
 	private static boolean isEvent(String value) {
-		// TODO Auto-generated method stub
 		Vector<String> values = AttributeValues.getValues(DataType.EVENT);
 		if (values.contains(value))
 			return true;
@@ -373,7 +369,6 @@ public class DataType {
 	}
 
 	private static boolean isColor(String value) {
-		// TODO Auto-generated method stub
 		Vector<String> values = AttributeValues.getValues(DataType.COLOR);
 		if (values.contains(value))
 			return true;
@@ -389,12 +384,10 @@ public class DataType {
 	}
 
 	private static boolean isXConnector(String value) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	private static boolean isQuantity(String value) {
-		// TODO Auto-generated method stub
 		try {
 			Integer t = new Integer(value);
 			if (t.intValue() < 0)
@@ -407,7 +400,6 @@ public class DataType {
 	}
 	
 	private static boolean isZIndex(String value) {
-		// TODO Auto-generated method stub
 		try {
 			Integer t = new Integer(value);
 			if (t.intValue() < 0 || t.intValue() > 255)
