@@ -230,6 +230,51 @@ public class AttributeValues {
 			ret.add("true");
 			ret.add("false");
 		}
+		if (type == DataType.PROPERTY_NAME) {
+			ret.add("system.language");
+			ret.add("system.caption");
+			ret.add("system.subtitle");
+			ret.add("system.returnBitRate (i)");
+			ret.add("system.screenSize");
+			ret.add("system.screenGraphicSize");
+			ret.add("system.audioType");
+			ret.add("system.screenSize (i)");
+			ret.add("system.screenGraphicSize (i)");
+			ret.add("system.audioType (i)");
+			ret.add("system.devNumber (i)");
+			ret.add("system.classType (i)");
+			ret.add("system.info (i)");
+			ret.add("system.classNumber");
+			ret.add("system.CPU");
+			ret.add("system.memory");
+			ret.add("system.operatingSystem");
+			ret.add("system.javaConfiguration");
+			ret.add("system.javaProfile");
+			ret.add("system.luaVersion");
+			
+			ret.add("user.age");
+			ret.add("user.location");
+			ret.add("user.genre");
+			
+			ret.add("default.focusBorderColor");
+			ret.add("default.selBorberColor");
+			ret.add("default.focusBorderWidth");
+			ret.add("default.focusBorderTransparency");
+			
+			ret.add("service.currentFocus");
+			ret.add("service.currentKeyMaster");
+			
+			ret.add("service.currentFocus");
+			ret.add("service.currentKeyMaster");
+			
+			ret.add("si.numberOfServices");
+			ret.add("si.numberOfPartialServices");
+			ret.add("si.channelNumber");
+			
+			ret.add("channel.keyCapture");
+			ret.add("channel.virtualKeyboard");
+			ret.add("channel.keyboardBounds");
+		}
 		return ret;
 	}
 }

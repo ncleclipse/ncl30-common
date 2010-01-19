@@ -158,7 +158,7 @@ public class NCLStructure {
 	
 	//Extended AttributeAnchor Module
 		//property
-		att("property", "name", true, DataType.ID);
+		att("property", "name", true, DataType.PROPERTY_NAME);
 		att("property", "value", false, DataType.STRING);
 	
 	//Extended SwitchInterface Module
