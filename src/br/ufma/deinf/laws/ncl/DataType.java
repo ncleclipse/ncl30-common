@@ -52,7 +52,7 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
-	public static final int DEVICE = 15; // validacao feita no semantico (gera
+	public static final int DEVICE = 15; // valida��o feita no sem�ntico (gera
 	// um warning).
 	public static final int COMPARATOR = 16;
 	public static final int SIMPLEACTION_ROLE = 17;
@@ -66,8 +66,10 @@ public class DataType {
 	public static final int TRANSITION_SUBTYPE = 25;
 	public static final int DIRECTION = 26;
 	public static final int BOOLEAN_VALUE = 27;
+	
+	public static final int PROPERTY_NAME = 28;
 
-	public static final int ZINDEX = 28;
+	public static final int ZINDEX = 29;
 
 	public DataType() {
 		// TODO Auto-generated constructor stub
@@ -304,6 +306,10 @@ public class DataType {
 			if (!DataType.isBooleanValue(value))
 				ok = false;
 			break;
+		case DataType.PROPERTY_NAME:
+			if (!DataType.isPropertyNameValue(value))
+				ok = false;
+			break;
 		case DataType.ZINDEX:
 			if (!DataType.isZIndex(value))
 				ok = false;
@@ -312,6 +318,15 @@ public class DataType {
 		return ok;
 	}
 
+	/**
+	 * @param value
+	 * @return
+	 */
+	private static boolean isPropertyNameValue(String value) {
+		return isId(value);
+	}
+
+	
 	private static boolean isBooleanValue(String value) {
 		Vector<String> values = AttributeValues
 				.getValues(DataType.BOOLEAN_VALUE);
