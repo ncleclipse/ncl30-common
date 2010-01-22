@@ -52,7 +52,7 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
-	public static final int DEVICE = 15; // valida��o feita no sem�ntico (gera
+	public static final int DEVICE = 15; // validacaoo feita no sem�ntico (gera
 	// um warning).
 	public static final int COMPARATOR = 16;
 	public static final int SIMPLEACTION_ROLE = 17;
