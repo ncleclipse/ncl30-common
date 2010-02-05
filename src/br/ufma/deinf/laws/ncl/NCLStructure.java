@@ -2,23 +2,23 @@
  * This file is part of the authoring environment in Nested Context Language -
  * NCL Eclipse.
  * 
- * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All Rights Reserved.
+ * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All
+ * Rights Reserved.
  * 
- * This program is free software; you can redistribute it and/or modify it under 
- * the terms of the GNU General Public License version 2 as published by
- * the Free Software Foundation.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY 
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
- * PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more 
- * details.
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License version 2 as published by the
+ * Free Software Foundation. This program is distributed in the hope that it
+ * will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License version 2 for more details.
  * 
  * You should have received a copy of the GNU General Public License version 2
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
- * For further information contact:
- * 		ncleclipse@laws.deinf.ufma.br
- * 		http://www.laws.deinf.ufma.br/ncleclipse
- * 		http://www.laws.deinf.ufma.br
+ * along with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA For further
+ * information contact: 
+ *		ncleclipse@laws.deinf.ufma.br
+ * 		http://www.laws.deinf.ufma.br/ncleclipse 
+ *		http://www.laws.deinf.ufma.br
  ********************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
@@ -29,8 +29,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.omg.CORBA.DATA_CONVERSION;
-
 import br.ufma.deinf.laws.util.MultiHashMap;
 
 /**
@@ -38,30 +36,31 @@ import br.ufma.deinf.laws.util.MultiHashMap;
  * autocomplete.
  * 
  * @author Roberto Azevedo
- *
+ * 
  */
 public class NCLStructure {
-	private static NCLStructure instance = null; 
-	private static Map<String, Map<String, Boolean> > attributes = new HashMap<String, Map<String,Boolean>>();
-	private static Map<String, Map<String, Integer> > dataTypes = new HashMap<String, Map<String,Integer>>();	
-	private static Map<String, Map<String, Character> > nesting = new HashMap<String, Map<String,Character>>();
+	private static NCLStructure instance = null;
+	private static Map<String, Map<String, Boolean>> attributes = new HashMap<String, Map<String, Boolean>>();
+	private static Map<String, Map<String, Integer>> dataTypes = new HashMap<String, Map<String, Integer>>();
+	private static Map<String, Map<String, Character>> nesting = new HashMap<String, Map<String, Character>>();
 	private static MultiHashMap references = new MultiHashMap();
-	
+
 	/**
 	 * Construtor privado Singleton
 	 */
-	private NCLStructure(){
-		//nomenclature:
+	private NCLStructure() {
+		// nomenclature:
 		// '?' means optional (0 or 1 occurence)
 		// '*' means optional repetition (0 or more occurences)
 		// '+' means repetition (1 or more occureences)
 		// '1' means 1 occurence
-		// '#' means that all the child with '#' must have at least one occurence
+		// '#' means that all the child with '#' must have at least one
+		// occurence
 		// 'a' means one of the two child elements
 		// 'b' means one of the two child elements
-	
-	//Extended Structure Module
-		//ncl
+
+		// Extended Structure Module
+		// ncl
 		att("ncl", "id", true, DataType.ID);
 		att("ncl", "title", false, DataType.STRING);
 		att("ncl", "xmlns", false, DataType.XMLNS);
@@ -69,8 +68,8 @@ public class NCLStructure {
 		att("ncl", "xsi:schemaLocation", false);
 		ct("ncl", "head", '?');
 		ct("ncl", "body", '?');
-	
-		//head
+
+		// head
 		att("head", null, false);
 		ct("head", "importedDocumentBase", '?');
 		ct("head", "ruleBase", '?');
@@ -78,10 +77,8 @@ public class NCLStructure {
 		ct("head", "regionBase", '*');
 		ct("head", "descriptorBase", '?');
 		ct("head", "connectorBase", '?');
-		ct("head", "meta", '*');
-		ct("head", "metadata", '*');
-	
-		//body
+
+		// body
 		att("body", "id", false, DataType.ID);
 		ct("body", "port", '*');
 		ct("body", "property", '*');
@@ -89,17 +86,17 @@ public class NCLStructure {
 		ct("body", "context", '*');
 		ct("body", "switch", '*');
 		ct("body", "link", '*');
-	
-	//Extended Layout Module
-		//regionBase
+
+		// Extended Layout Module
+		// regionBase
 		att("regionBase", "id", false, DataType.ID);
 		att("regionBase", "device", false, DataType.DEVICE);
 		att("regionBase", "region", false, DataType.ID);
 		// Tem q ter pelo menos um dos dois (importBase | region)+
 		ct("regionBase", "importBase", '#');
 		ct("regionBase", "region", '#');
-	
-		//region
+
+		// region
 		att("region", "id", true, DataType.ID);
 		att("region", "title", false, DataType.STRING);
 		att("region", "left", false, DataType.SIZE);
@@ -108,22 +105,25 @@ public class NCLStructure {
 		att("region", "bottom", false, DataType.SIZE);
 		att("region", "height", false, DataType.SIZE);
 		att("region", "width", false, DataType.SIZE);
-		att("region", "zIndex", false, DataType.ZINDEX); // pode ser negativo (não ta funcionando)
+		att("region", "zIndex", false, DataType.ZINDEX); // pode ser negativo
+		// (não ta
+		// funcionando)
 		ct("region", "region", '*');
-	
-	//Extended Media Module
-		//media
+
+		// Extended Media Module
+		// media
 		att("media", "id", true, DataType.ID);
 		att("media", "src", false, DataType.URI);
 		att("media", "refer", false, DataType.ID);
-		att("media", "instance", false, DataType.INSTANCE); // new, instSame, gradSame
+		att("media", "instance", false, DataType.INSTANCE); // new, instSame,
+		// gradSame
 		att("media", "type", false, DataType.MIME_TYPE); // Não ta funcionando
 		att("media", "descriptor", false, DataType.ID);
 		ct("media", "area", '*');
 		ct("media", "property", '*');
-	
-	//Extended Context Module
-		//context
+
+		// Extended Context Module
+		// context
 		att("context", "id", true, DataType.ID);
 		att("context", "refer", false, DataType.ID);
 		ct("context", "port", '*');
@@ -132,46 +132,48 @@ public class NCLStructure {
 		ct("context", "context", '*');
 		ct("context", "link", '*');
 		ct("context", "switch", '*');
-	
-	//Extended MediaContentAnchor Module
-		//area
+
+		// Extended MediaContentAnchor Module
+		// area
 		att("area", "id", true, DataType.ID);
-		att("area", "coords", false, DataType.COORDINATE); 
+		att("area", "coords", false, DataType.COORDINATE);
 		att("area", "begin", false, DataType.TIME);
 		att("area", "end", false, DataType.TIME);
 		att("area", "text", false, DataType.STRING);
-		att("area", "position", false, DataType.INTEGER); 
+		att("area", "position", false, DataType.INTEGER);
 		att("area", "first", false, DataType.STRING);
 		att("area", "last", false, DataType.STRING);
 		att("area", "label", false, DataType.STRING);
-		
-		//ainda nao faz parte da norma
+
+		// ainda nao faz parte da norma
 		att("area", "clip", false, DataType.STRING);
 		att("area", "beginOffset", false, DataType.STRING);
 		att("area", "endOffset", false, DataType.STRING);
-	
-	//Extended CompositeNodeInterface Module
-		//port
+
+		// Extended CompositeNodeInterface Module
+		// port
 		att("port", "id", true, DataType.ID);
-		att("port", "component", true, DataType.ID); // Verificar se é isso mesmo
-		att("port", "interface", false, DataType.ID); // Verificar se é isso mesmo
-	
-	//Extended AttributeAnchor Module
-		//property
+		att("port", "component", true, DataType.ID); // Verificar se é isso
+		// mesmo
+		att("port", "interface", false, DataType.ID); // Verificar se é isso
+		// mesmo
+
+		// Extended AttributeAnchor Module
+		// property
 		att("property", "name", true, DataType.PROPERTY_NAME);
 		att("property", "value", false, DataType.STRING);
-	
-	//Extended SwitchInterface Module
-		//switchPort
+
+		// Extended SwitchInterface Module
+		// switchPort
 		att("switchPort", "id", true, DataType.ID);
 		ct("switchPort", "mapping", '+');
-	
-		//mapping
+
+		// mapping
 		att("mapping", "component", true, DataType.ID);
 		att("mapping", "interface", false, DataType.ID);
-	
-	//Extended Descriptor Module
-		//descriptor
+
+		// Extended Descriptor Module
+		// descriptor
 		att("descriptor", "id", true, DataType.ID);
 		att("descriptor", "player", false, DataType.STRING);
 		att("descriptor", "explicitDur", false, DataType.TIME);
@@ -186,58 +188,59 @@ public class NCLStructure {
 		att("descriptor", "focusBorderWidth", false);
 		att("descriptor", "focusBorderTransparency", false);
 		att("descriptor", "focusSrc", false, DataType.URI); // é isso mesmo ??
-		att("descriptor", "focusSelSrc", false, DataType.URI); // é isso mesmo ??
+		att("descriptor", "focusSelSrc", false, DataType.URI); // é isso mesmo
+		// ??
 		att("descriptor", "selBorderColor", false, DataType.COLOR);
 		att("descriptor", "transIn", false);
 		att("descriptor", "transOut", false);
 		ct("descriptor", "descriptorParam", '*');
-	
-		//descriptorParam
+
+		// descriptorParam
 		att("descriptorParam", "name", true, DataType.ID);
 		att("descriptorParam", "value", true, DataType.STRING);
-	
-		//descriptorBase
+
+		// descriptorBase
 		att("descriptorBase", "id", false, DataType.ID);
 		ct("descriptorBase", "importBase", '#');
 		ct("descriptorBase", "descriptor", '#');
 		ct("descriptorBase", "descriptorSwitch", '#');
-	
-	//Extended Linking Module
-		//bind
+
+		// Extended Linking Module
+		// bind
 		att("bind", "role", true, DataType.ID);
 		att("bind", "component", true, DataType.ID);
 		att("bind", "interface", false, DataType.ID);
 		att("bind", "descriptor", false, DataType.ID);
 		ct("bind", "bindParam", '*');
-		
-		//bindParam
+
+		// bindParam
 		att("bindParam", "name", true, DataType.ID);
 		att("bindParam", "value", true, DataType.STRING);
-	
-		//linkParam
+
+		// linkParam
 		att("linkParam", "name", true, DataType.ID);
 		att("linkParam", "value", true, DataType.STRING);
-	
-		//link
+
+		// link
 		att("link", "id", false, DataType.ID);
 		att("link", "xconnector", true, DataType.XCONNECTOR);
 		ct("link", "linkParam", '*');
 		ct("link", "bind", '+');
-	
-	//Extended CausalConnectorFunctionality Module
-		//causalConnector
+
+		// Extended CausalConnectorFunctionality Module
+		// causalConnector
 		att("causalConnector", "id", true, DataType.ID);
 		ct("causalConnector", "connectorParam", '*');
 		ct("causalConnector", "simpleCondition", 'a');
 		ct("causalConnector", "compoundCondition", 'a');
 		ct("causalConnector", "simpleAction", 'b');
 		ct("causalConnector", "compoundAction", 'b');
-	
-		//connectorParam
+
+		// connectorParam
 		att("connectorParam", "name", true, DataType.ID);
 		att("connectorParam", "type", false);
-	
-		//simpleCondition
+
+		// simpleCondition
 		att("simpleCondition", "role", true, DataType.SIMPLECONDITION_ROLE);
 		att("simpleCondition", "delay", false);
 		att("simpleCondition", "eventType", false, DataType.EVENT);
@@ -246,16 +249,16 @@ public class NCLStructure {
 		att("simpleCondition", "min", false, DataType.QUANTITY);
 		att("simpleCondition", "max", false, DataType.QUANTITY);
 		att("simpleCondition", "qualifier", false, DataType.BOOLEAN_OPERATOR);
-	
-		//compoundCondition
+
+		// compoundCondition
 		att("compoundCondition", "operator", true, DataType.BOOLEAN_OPERATOR);
 		att("compoundCondition", "delay", false, DataType.TIME);
 		ct("compoundCondition", "simpleCondition", '#');
 		ct("compoundCondition", "compoundCondition", '#');
 		ct("compoundCondition", "assessmentStatement", '*');
 		ct("compoundCondition", "compoundStatement", '*');
-		
-		//simpleAction
+
+		// simpleAction
 		att("simpleAction", "role", true, DataType.SIMPLEACTION_ROLE);
 		att("simpleAction", "delay", false);
 		att("simpleAction", "eventType", false, DataType.EVENT);
@@ -268,67 +271,69 @@ public class NCLStructure {
 		att("simpleAction", "repeatDelay", false);
 		att("simpleAction", "duration", false);
 		att("simpleAction", "by", false);
-	
-		//compoundAction
+
+		// compoundAction
 		att("compoundAction", "operator", true, DataType.SYNCHRONISM_OPERATOR);
 		att("compoundAction", "delay", false);
 		ct("compoundAction", "simpleAction", '#');
 		ct("compoundAction", "compoundAction", '#');
-	
-		//assessmentStatement
+
+		// assessmentStatement
 		att("assessmentStatement", "comparator", true, DataType.COMPARATOR);
-		//TODO: attributeAssessment ( attributeAssessment | valueAssessment )
+		// TODO: attributeAssessment ( attributeAssessment | valueAssessment )
 		ct("assessmentStatement", "attributeAssessment", '*');
 		ct("assessmentStatement", "valueAssessment", '*');
-	
-		//attributeAssessment
+
+		// attributeAssessment
 		att("attributeAssessment", "role", true);
 		att("attributeAssessment", "eventType", true, DataType.EVENT);
 		att("attributeAssessment", "key", false, DataType.KEY);
-		att("attributeAssessment", "attributeType", false); // salles disse q � opcional em 21/05/2008
+		att("attributeAssessment", "attributeType", false); // salles disse q eh
+		// opcional em
+		// 21/05/2008
 		att("attributeAssessment", "offset", false);
-	
-		//valueAssessment
+
+		// valueAssessment
 		att("valueAssessment", "value", true);
-		
-		//compoundStatement
+
+		// compoundStatement
 		att("compoundStatement", "operator", true, DataType.BOOLEAN_OPERATOR);
 		att("compoundStatement", "isNegated", false, DataType.BOOLEAN_VALUE);
 		ct("compoundStatement", "assessmentStatement", '#');
 		ct("compoundStatement", "compoundStatement", '#');
-	
-	//Extended ConnectorBase Module
-		//connectorBase
+
+		// Extended ConnectorBase Module
+		// connectorBase
 		att("connectorBase", "id", false, DataType.ID);
 		ct("connectorBase", "importBase", '*');
 		ct("connectorBase", "causalConnector", '*');
-	
-	//Extended TestRule Module
-		//ruleBase
+
+		// Extended TestRule Module
+		// ruleBase
 		att("ruleBase", "id", false, DataType.ID);
 		ct("ruleBase", "importBase", '#');
 		ct("ruleBase", "rule", '#');
 		ct("ruleBase", "compositeRule", '#');
-	
-		//rule
+
+		// rule
 		att("rule", "id", true, DataType.ID);
 		att("rule", "var", true);
 		att("rule", "comparator", true, DataType.COMPARATOR);
 		att("rule", "value", true);
-	
-		//compositeRule
+
+		// compositeRule
 		att("compositeRule", "id", true, DataType.ID);
 		att("compositeRule", "operator", true, DataType.BOOLEAN_OPERATOR);
 		ct("compositeRule", "rule", '#');
 		ct("compositeRule", "compositeRule", '#');
-	
-	//Extended TestRule Module
-		//bindRule
+
+		// Extended TestRule Module
+		// bindRule
 		att("bindRule", "constituent", true);
 		att("bindRule", "rule", true);
-	
-	//Extended ContentControl Module
-		//switch
+
+		// Extended ContentControl Module
+		// switch
 		att("switch", "id", true, DataType.ID);
 		att("switch", "refer", false);
 		ct("switch", "defaultComponent", '?');
@@ -336,43 +341,43 @@ public class NCLStructure {
 		ct("switch", "bindRule", '*');
 		ct("switch", "media", '*');
 		ct("switch", "context", '*');
-		ct("switch", "switch", '*'); 
-	
-		//defaultComponent
+		ct("switch", "switch", '*');
+
+		// defaultComponent
 		att("defaultComponent", "component", true);
-	
-	//Extended DescriptorControl Module
-		//descriptorSwitch
+
+		// Extended DescriptorControl Module
+		// descriptorSwitch
 		att("descriptorSwitch", "id", true, DataType.ID);
 		ct("descriptorSwitch", "defaultDescriptor", '?');
 		ct("descriptorSwitch", "descriptor", '*');
 		ct("descriptorSwitch", "bindRule", '*');
-	
-		//defaultDescriptor
+
+		// defaultDescriptor
 		att("defaultDescriptor", "descriptor", true);
-	
-	//Extended Import Module
-		//importBase
+
+		// Extended Import Module
+		// importBase
 		att("importBase", "alias", true);
 		att("importBase", "documentURI", true, DataType.URI);
 		att("importBase", "region", false);
-	
-		//importedDocumentBase
+
+		// importedDocumentBase
 		att("importedDocumentBase", "id", false, DataType.ID);
 		ct("importedDocumentBase", "importNCL", '+');
-	
-		//importNCL
+
+		// importNCL
 		att("importNCL", "alias", true);
 		att("importNCL", "documentURI", true, DataType.URI);
-	
-	//Extended TransitionBase Module
-		//transitionBase
+
+		// Extended TransitionBase Module
+		// transitionBase
 		att("transitionBase", "id", false, DataType.ID);
 		ct("transitionBase", "importBase", '#');
 		ct("transitionBase", "transition", '#');
-	
-	//Extended BasicTransition module
-		//transition
+
+		// Extended BasicTransition module
+		// transition
 		att("transition", "id", true, DataType.ID);
 		att("transition", "type", true, DataType.TRANSITION_TYPE);
 		att("transition", "subtype", false, DataType.TRANSITION_SUBTYPE);
@@ -385,109 +390,117 @@ public class NCLStructure {
 		att("transition", "vertRepeat", false, DataType.INTEGER);
 		att("transition", "borderWidth", false, DataType.INTEGER);
 		att("transition", "borderColor", false, DataType.COLOR);
-	
-	//Extended Metainformation module
-		//meta
+
+		// Extended Metainformation module
+		// meta
+		ct("head", "meta", '*');
+		ct("body", "meta", '*');
+		ct("context", "meta", '*');
 		att("meta", "name", true);
 		att("meta", "content", true);
-	
-		//metadata
-		//att("metadata", null, false);
-			//TODO: "RDF tree" as child
-	
-	//Refer�ncias		
-		//tagname, atributo, refTagname, refTagAtributo
-		
-		//regionBase
+
+		// metadata
+		// TODO: "RDF tree" as child
+		ct("head", "metadata", '*');
+		ct("body", "metadata", '*');
+		ct("context", "metadata", '*');
+		att("metadata", null, false);
+
+		// Referencias
+		// tagname, atributo, refTagname, refTagAtributo
+
+		// regionBase
 		ref("regionBase", "region", "region", "id");
-		
-		//media
+
+		// media
 		ref("media", "descriptor", "descriptor", "id");
 		ref("media", "descriptor", "descriptorSwitch", "id");
-		ref("media", "refer", "media", "id"); 
-		
-		//context
+		ref("media", "refer", "media", "id");
+
+		// context
 		ref("context", "refer", "context", "id");
 		ref("context", "refer", "body", "id");
-		//ref("context", "refer", "ncl", "id"); // isso nao pode mais
+		// ref("context", "refer", "ncl", "id"); // isso nao pode mais
 
-		//descriptor
+		// descriptor
 		ref("descriptor", "region", "region", "id");
 		ref("descriptor", "transIn", "transition", "id");
 		ref("descriptor", "transOut", "transition", "id");
-		
-		//port
+
+		// port
 		ref("port", "component", "media", "id");
 		ref("port", "component", "context", "id");
 		ref("port", "component", "switch", "id");
 		ref("port", "interface", "area", "id");
 		ref("port", "interface", "port", "id");
-		//ref("port", "interface", "property", "name"); //Dúvida! Verificar isto!
-		
-		//bind
+		// ref("port", "interface", "property", "name"); //Dúvida! Verificar
+		// isto!
+
+		// bind
 		ref("bind", "component", "media", "id");
 		ref("bind", "component", "context", "id");
 		ref("bind", "component", "switch", "id");
 		ref("bind", "role", "simpleCondition", "role");
 		ref("bind", "role", "simpleAction", "role");
 		ref("bind", "role", "attributeAssessment", "role");
-		//ref("bind", "role", "compoundCondition", "role");
-		//ref("bind", "role", "compoundAction", "role");
+		// ref("bind", "role", "compoundCondition", "role");
+		// ref("bind", "role", "compoundAction", "role");
 		ref("bind", "interface", "area", "id");
 		ref("bind", "interface", "port", "id");
 		ref("bind", "interface", "property", "name");
 		ref("bind", "descriptor", "descriptor", "id");
-		
-		//bindParam
-		//ref("bindParam", "name", "connectorParam", "name");
-		
-		//bindRule
+
+		// bindParam
+		// ref("bindParam", "name", "connectorParam", "name");
+
+		// bindRule
 		ref("bindRule", "constituent", "media", "id");
 		ref("bindRule", "constituent", "context", "id");
 		ref("bindRule", "constituent", "switch", "id");
 		ref("bindRule", "constituent", "descriptor", "id");
 		ref("bindRule", "rule", "rule", "id");
 		ref("bindRule", "rule", "compositeRule", "id");
-		
-		//link
+
+		// link
 		ref("link", "xconnector", "causalConnector", "id");
-		
-		//linkParam
+
+		// linkParam
 		ref("linkParam", "name", "connectorParam", "name");
-		//bindParam
+		// bindParam
 		ref("bindParam", "name", "connectorParam", "name");
-		
-		//switch
+
+		// switch
 		ref("switch", "refer", "switch", "id");
-		
-		//mapping
+
+		// mapping
 		ref("mapping", "component", "media", "id");
 		ref("mapping", "component", "context", "id");
 		ref("mapping", "component", "switch", "id");
 		ref("mapping", "interface", "area", "id");
 		ref("mapping", "interface", "port", "id");
 		ref("mapping", "interface", "property", "name");
-		
-		//defaultComponent
+
+		// defaultComponent
 		ref("defaultComponent", "component", "media", "id");
 		ref("defaultComponent", "component", "context", "id");
 		ref("defaultComponent", "component", "switch", "id");
-		
-		//defaultDescriptor
+
+		// defaultDescriptor
 		ref("defaultDescriptor", "descriptor", "descriptor", "id");
-		
+
 	}
 
 	/**
 	 * Retorna a instância única da classe
+	 * 
 	 * @return A instância de {@link NCLStructure}
 	 */
-	public static NCLStructure getInstance(){
-		if(instance == null)
+	public static NCLStructure getInstance() {
+		if (instance == null)
 			instance = new NCLStructure();
 		return instance;
 	}
-	
+
 	/**
 	 * 
 	 * @return attributes
@@ -495,7 +508,7 @@ public class NCLStructure {
 	public static Map<String, Map<String, Boolean>> getAttributes() {
 		return attributes;
 	}
-	
+
 	/**
 	 * 
 	 * @param attributes
@@ -503,7 +516,7 @@ public class NCLStructure {
 	public void setAttributes(Map<String, Map<String, Boolean>> attributes) {
 		this.attributes = attributes;
 	}
-	
+
 	/**
 	 * 
 	 * @return nesting
@@ -511,7 +524,7 @@ public class NCLStructure {
 	public Map<String, Map<String, Character>> getNesting() {
 		return nesting;
 	}
-	
+
 	/**
 	 * 
 	 * @param nesting
@@ -519,75 +532,84 @@ public class NCLStructure {
 	public void setNesting(Map<String, Map<String, Character>> nesting) {
 		this.nesting = nesting;
 	}
-	
-	private void att(String elementName, String attributeName, boolean required)
-	{
-		if( !attributes.containsKey(elementName) ) {
+
+	private void att(String elementName, String attributeName, boolean required) {
+		if (!attributes.containsKey(elementName)) {
 			attributes.put(elementName, new HashMap());
 		}
-		Map <String, Boolean> atts = instance.attributes.get(elementName);
-		if( atts == null) {
+		Map<String, Boolean> atts = instance.attributes.get(elementName);
+		if (atts == null) {
 			atts = new HashMap();
 			attributes.put(elementName, atts);
 		}
 		atts.put(attributeName, required);
 	}
-	//Além de gravar se é requerido ou não verifica o tipo do dado
-	private void att(String elementName, String attributeName, boolean required, int type)
-	{
-		if( !attributes.containsKey(elementName) ) {
+
+	// Além de gravar se é requerido ou não verifica o tipo do dado
+	private void att(String elementName, String attributeName,
+			boolean required, int type) {
+		if (!attributes.containsKey(elementName)) {
 			attributes.put(elementName, new LinkedHashMap());
 			dataTypes.put(elementName, new HashMap());
 		}
-		Map <String, Boolean> atts = instance.attributes.get(elementName);
-		Map <String, Integer> dt = instance.dataTypes.get(elementName);
-		if( atts == null) {
+		Map<String, Boolean> atts = instance.attributes.get(elementName);
+		Map<String, Integer> dt = instance.dataTypes.get(elementName);
+		if (atts == null) {
 			atts = new HashMap();
 			attributes.put(elementName, atts);
 		}
-		if(dt == null){
+		if (dt == null) {
 			dt = new HashMap();
 			dataTypes.put(elementName, dt);
 		}
 		atts.put(attributeName, required);
 		dt.put(attributeName, type);
 	}
-	
-	private void ct(String elementName, String childElementName, char cardinality){
-		if( !nesting.containsKey(elementName) ) {
+
+	private void ct(String elementName, String childElementName,
+			char cardinality) {
+		if (!nesting.containsKey(elementName)) {
 			nesting.put(elementName, new HashMap());
 		}
-		Map <String, Character> childElement = instance.nesting.get(elementName);
-		if( childElement == null) {
+		Map<String, Character> childElement = instance.nesting.get(elementName);
+		if (childElement == null) {
 			childElement = new HashMap();
 			nesting.put(elementName, childElement);
 		}
-		childElement.put(childElementName, cardinality);		
+		childElement.put(childElementName, cardinality);
 	}
-	
-	private void ref(String elementName, String attributeName, String refElementName, String refAttributeName)
-	{
-		NCLReference nclReference = new NCLReference(elementName, attributeName, refElementName, refAttributeName);
+
+	private void ref(String elementName, String attributeName,
+			String refElementName, String refAttributeName) {
+		NCLReference nclReference = new NCLReference(elementName,
+				attributeName, refElementName, refAttributeName);
 		references.put(elementName, nclReference);
 	}
+
 	/**
-	 * Verifica se existe um elemento com o nome elementName na estrutura da linguagem.
+	 * Verifica se existe um elemento com o nome elementName na estrutura da
+	 * linguagem.
+	 * 
 	 * @param elementName
 	 * @return
 	 */
 	public static boolean isElement(String elementName) {
-		return attributes.containsKey(elementName) || nesting.containsKey(elementName);
+		return attributes.containsKey(elementName)
+				|| nesting.containsKey(elementName);
 	}
-	
+
 	/**
 	 * @param elementName
 	 * @param attributeName
 	 * @return
 	 */
 	public static boolean isAttribute(String elementName, String attributeName) {
-		if( !getAttributes().containsKey(elementName) ) return false;
-		else return getAttributes().get(elementName).containsKey(attributeName);
+		if (!getAttributes().containsKey(elementName))
+			return false;
+		else
+			return getAttributes().get(elementName).containsKey(attributeName);
 	}
+
 	public static Map<String, Map<String, Integer>> getDataTypes() {
 		return dataTypes;
 	}
@@ -595,110 +617,127 @@ public class NCLStructure {
 	public static void setDataTypes(Map<String, Map<String, Integer>> dataTypes) {
 		NCLStructure.dataTypes = dataTypes;
 	}
+
 	/**
 	 * Retorna o dataType do atributo, conforme a classe DataType
+	 * 
 	 * @param elementName
 	 * @param attributeName
 	 * @return data type of attribute
 	 */
-	public static Integer getDataType(String elementName, String attributeName){
-		if(!getDataTypes().containsKey(elementName)
-			|| !getDataTypes().get(elementName).containsKey(attributeName)) return new Integer(DataType.UNKNOWN);
-		else return getDataTypes().get(elementName).get(attributeName);
+	public static Integer getDataType(String elementName, String attributeName) {
+		if (!getDataTypes().containsKey(elementName)
+				|| !getDataTypes().get(elementName).containsKey(attributeName))
+			return new Integer(DataType.UNKNOWN);
+		else
+			return getDataTypes().get(elementName).get(attributeName);
 	}
-	
+
 	/**
 	 * 
 	 * @param parentElementName
 	 * @param childElementName
 	 * @return
 	 */
-	public static boolean isChild(String parentElementName, String childElementName) {
-		if( !nesting.containsKey(parentElementName) ) return false;
-		else return nesting.get(parentElementName).containsKey(childElementName);
+	public static boolean isChild(String parentElementName,
+			String childElementName) {
+		if (!nesting.containsKey(parentElementName))
+			return false;
+		else
+			return nesting.get(parentElementName).containsKey(childElementName);
 	}
-	
+
 	/**
 	 * 
 	 * @param elementName
 	 * @return
 	 */
-	public static Map<String, Character> getChildrenCardinality(String elementName) 
-	{
+	public static Map<String, Character> getChildrenCardinality(
+			String elementName) {
 		Map<String, Character> empty = new HashMap();
-		if( !nesting.containsKey(elementName) ) return empty;
-		else return nesting.get(elementName);
+		if (!nesting.containsKey(elementName))
+			return empty;
+		else
+			return nesting.get(elementName);
 	}
-	
+
 	/**
 	 * 
 	 * @param elementName
 	 * @return
 	 */
-	public static Map<String, Boolean> getAttributes(String elementName)
-	{
+	public static Map<String, Boolean> getAttributes(String elementName) {
 		Map<String, Boolean> empty = new HashMap();
-		if( !attributes.containsKey(elementName) ) return empty;
-		else return attributes.get(elementName);
+		if (!attributes.containsKey(elementName))
+			return empty;
+		else
+			return attributes.get(elementName);
 	}
-	
-	public static Map<String, Integer> getDataTypes(String elementName)
-	{
+
+	public static Map<String, Integer> getDataTypes(String elementName) {
 		Map<String, Integer> empty = new HashMap();
-		if( !attributes.containsKey(elementName) ) return empty;
-		else return dataTypes.get(elementName);
+		if (!attributes.containsKey(elementName))
+			return empty;
+		else
+			return dataTypes.get(elementName);
 	}
-	
+
 	/**
 	 * 
 	 * @param elementName
 	 * @return
 	 */
 	public boolean isRequiredId(String elementName) {
-		if(!instance.getAttributes().containsKey(elementName)) return false;
-		if(!instance.getAttributes().get(elementName).containsKey("id")) return false;
-		return instance.getAttributes().get(elementName).containsKey("id")==true;
+		if (!instance.getAttributes().containsKey(elementName))
+			return false;
+		if (!instance.getAttributes().get(elementName).containsKey("id"))
+			return false;
+		return instance.getAttributes().get(elementName).containsKey("id") == true;
 	}
-	
-	public boolean isReference(String elementName, String attributeName){
-		if(references.containsKey(elementName)){
+
+	public boolean isReference(String elementName, String attributeName) {
+		if (references.containsKey(elementName)) {
 			Collection<NCLReference> collection = references.get(elementName);
 			Iterator it = collection.iterator();
-			while(it.hasNext()){
-				NCLReference ref = (NCLReference)it.next();
-				if(ref.getAttribute().equals(attributeName)) return true;
+			while (it.hasNext()) {
+				NCLReference ref = (NCLReference) it.next();
+				if (ref.getAttribute().equals(attributeName))
+					return true;
 			}
 		}
 		return false;
 	}
-	
-	public Collection getNCLReference(String elementName, String attributeName){
-		if(references.containsKey(elementName)){
-			Collection <NCLReference> ret = new ArrayList();
+
+	public Collection getNCLReference(String elementName, String attributeName) {
+		if (references.containsKey(elementName)) {
+			Collection<NCLReference> ret = new ArrayList();
 			Collection<NCLReference> collection = references.get(elementName);
 			Iterator it = collection.iterator();
-			while(it.hasNext()){
-				NCLReference ref = (NCLReference)it.next();
-				if(ref.getAttribute().equals(attributeName)) ret.add(ref);
+			while (it.hasNext()) {
+				NCLReference ref = (NCLReference) it.next();
+				if (ref.getAttribute().equals(attributeName))
+					ret.add(ref);
 			}
 			return ret;
 		}
 		return null;
 	}
-	
-	public Collection getNCLReverseReference(String elementName, String attributeName){
+
+	public Collection getNCLReverseReference(String elementName,
+			String attributeName) {
 		Iterator it = references.keySet().iterator();
-		Collection <NCLReference> ret = new ArrayList();
-		while(it.hasNext()){
-			Collection<NCLReference> collection = (Collection<NCLReference>) references.get(it.next());
+		Collection<NCLReference> ret = new ArrayList();
+		while (it.hasNext()) {
+			Collection<NCLReference> collection = (Collection<NCLReference>) references
+					.get(it.next());
 			Iterator it2 = collection.iterator();
-			while(it2.hasNext()){
-				NCLReference ref = (NCLReference)it2.next();
-				if(ref.getRefAttribute().equals(attributeName) &&
-						ref.getRefTagname().equals(elementName)) ret.add(ref);
+			while (it2.hasNext()) {
+				NCLReference ref = (NCLReference) it2.next();
+				if (ref.getRefAttribute().equals(attributeName)
+						&& ref.getRefTagname().equals(elementName))
+					ret.add(ref);
 			}
 		}
 		return ret;
 	}
 }
-
