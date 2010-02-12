@@ -275,6 +275,37 @@ public class AttributeValues {
 			ret.add("channel.virtualKeyboard");
 			ret.add("channel.keyboardBounds");
 		}
+		
+		if (type==DataType.FIT_VALUE){
+			ret.add("fill");
+			ret.add("hidden");
+			ret.add("meet");
+			ret.add("meetBest");
+			ret.add("slice");
+		}
+		
+		if (type==DataType.SCROLL) {
+			ret.add("none");
+			ret.add("horizontal");
+			ret.add("vertical");
+			ret.add("both");
+			ret.add("automatic");
+		}
+		
+		if (type==DataType.FONT_VARIANT) {
+			ret.add("normal");
+			ret.add("small-caps");
+		}
+		
+		if (type==DataType.FONT_WEIGHT) {
+			ret.add("normal");
+			ret.add("bold");
+		}
+		
+		if (type==DataType.PLAYER_LIFE) {
+			ret.add("keep");
+			ret.add("close");
+		}
 		return ret;
 	}
 }

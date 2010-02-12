@@ -66,10 +66,13 @@ public class DataType {
 	public static final int TRANSITION_SUBTYPE = 25;
 	public static final int DIRECTION = 26;
 	public static final int BOOLEAN_VALUE = 27;
-	
 	public static final int PROPERTY_NAME = 28;
-
 	public static final int ZINDEX = 29;
+	public static final int FIT_VALUE = 30;
+	public static final int SCROLL = 31;
+	public static final int FONT_VARIANT = 32;
+	public static final int FONT_WEIGHT = 33;
+	public static final int PLAYER_LIFE = 34;
 
 	public DataType() {
 		// TODO Auto-generated constructor stub
