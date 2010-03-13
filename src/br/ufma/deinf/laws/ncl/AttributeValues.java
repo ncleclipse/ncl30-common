@@ -128,7 +128,7 @@ public class AttributeValues {
 			ret.add("silver");
 			ret.add("gray");
 			ret.add("red");
-			ret.add("marron");
+			ret.add("maroon");
 			ret.add("fuchsia");
 			ret.add("purple");
 			ret.add("lime");
