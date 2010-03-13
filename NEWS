@@ -1,5 +1,8 @@
 NEWS:
-
+Versao 1.4.20
+2010-03-13
+	- Modificado tipo de dado ID para aceitar _ no início.
+	- 
 Versao 1.4.6
 2009-11-19
 	- Novo DataType ZINDEX. Validação (ok)

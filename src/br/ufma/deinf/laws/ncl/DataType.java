@@ -153,10 +153,11 @@ public class DataType {
 		return false;
 	}
 
-	// Conjutndo de letras ou numeros começando com uma letra
-	//TODO: Identificador pode comecar com _
+	// Conjunto de letras ou numeros começando com uma letra ou underline
+	//TODO: Talvez o . deva ser substituído por caracteres específicos. 
+	//Verificar na especificação XML. 
 	public static boolean isId(String str) {
-		Pattern p = Pattern.compile("^[a-zA-Z].*$");
+		Pattern p = Pattern.compile("^[_a-zA-Z].*$");
 		Matcher m = p.matcher(str);
 
 		return m.matches();
