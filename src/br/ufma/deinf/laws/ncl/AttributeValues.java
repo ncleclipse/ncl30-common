@@ -220,7 +220,7 @@ public class AttributeValues {
 			ret.add("fade");
 		}
 		if (type == DataType.TRANSITION_SUBTYPE) {
-			// implementar
+			// TODO: implementar validação de subtype
 		}
 		if (type == DataType.DIRECTION) {
 			ret.add("forward");

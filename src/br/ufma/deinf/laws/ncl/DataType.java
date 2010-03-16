@@ -347,11 +347,13 @@ public class DataType {
 	}
 
 	private static boolean isTransitionSubType(String value) {
-		Vector<String> values = AttributeValues
+		//TODO: validate based on transition type
+		/* Vector<String> values = AttributeValues
 				.getValues(DataType.TRANSITION_SUBTYPE);
 		if (values.contains(value))
 			return true;
-		return false;
+		return false; */
+		return isId(value);
 	}
 
 	private static boolean isTransitionType(String value) {
