@@ -73,7 +73,9 @@ public class DataType {
 	public static final int FONT_VARIANT = 32;
 	public static final int FONT_WEIGHT = 33;
 	public static final int PLAYER_LIFE = 34;
-
+	public static final int PARAM_VALUES = 35;
+	
+	
 	public DataType() {
 		// TODO Auto-generated constructor stub
 	}

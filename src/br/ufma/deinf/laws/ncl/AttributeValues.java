@@ -306,6 +306,63 @@ public class AttributeValues {
 			ret.add("keep");
 			ret.add("close");
 		}
+		
+		if (type==DataType.PARAM_VALUES){
+			ret.add ("background");
+			ret.add ("balanceLevel"); 
+			ret.add ("baseDeviceRegion");
+			ret.add ("bassLevel");
+			ret.add ("bottom");
+			ret.add ("bounds");
+			ret.add ("deviceClass");
+			ret.add ("fit");
+			ret.add ("fontColor");
+			ret.add ("fontFamily");
+			ret.add ("fontStyle");
+			ret.add ("fontSize");
+			ret.add ("fontVariant");
+			ret.add ("fontWeight");
+			ret.add ("height");
+			ret.add ("left");
+			ret.add ("location");
+			ret.add ("plan");
+			ret.add ("player");
+			ret.add ("playerLife");
+			ret.add ("reusePlayer");
+			ret.add ("right");
+			ret.add ("scroll");
+			ret.add ("size");
+			ret.add ("soundLevel");
+			ret.add ("style");
+			ret.add ("top");
+			ret.add ("transInBorderColor");
+			ret.add ("transInBorderWidth");
+			ret.add ("transInDirection");
+			ret.add ("transInDur");
+			ret.add ("transInEndProgress");
+			ret.add ("transInFadeColor");
+			ret.add ("transInHorRepeat");
+			ret.add ("transInStartProgress");
+			ret.add ("TransInSubtype");
+			ret.add ("transInType");
+			ret.add ("transInVertRepeat");
+			ret.add ("transBorderColor");
+			ret.add ("transOutBorderWidth");
+			ret.add ("transOutDirection");
+			ret.add ("transOutDur");
+			ret.add ("transOutEndProgress");
+			ret.add ("transOutFadeColor");
+			ret.add ("transOutHorRepeat");
+			ret.add ("transOutType");
+			ret.add ("transOutStartProgress"); 
+			ret.add ("TransOutSubtype");
+			ret.add ("transOutVertRepeat");
+			ret.add ("transparency");
+			ret.add ("trebleLevel");
+			ret.add ("visible");
+			ret.add ("width");
+			ret.add ("zIndex"); 
+		}
 		return ret;
 	}
 }
