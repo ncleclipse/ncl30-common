@@ -2,24 +2,28 @@
  * This file is part of the authoring environment in Nested Context Language -
  * NCL Eclipse.
  * 
- * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All Rights Reserved.
+ * Copyright: 2007-2010 UFMA/LAWS (Laboratory of Advanced Web Systems), All
+ * Rights Reserved.
  * 
- * This program is free software; you can redistribute it and/or modify it under 
+ * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY 
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
- * PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more 
- * details.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License version 2 for
+ * more details.
  * 
  * You should have received a copy of the GNU General Public License version 2
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
+ * USA.
+ *
  * For further information contact:
- * 		ncleclipse@laws.deinf.ufma.br
- * 		http://www.laws.deinf.ufma.br/ncleclipse
- * 		http://www.laws.deinf.ufma.br
- ********************************************************************************/
+ * - ncleclipse@laws.deinf.ufma.br
+ * - http://www.laws.deinf.ufma.br/ncleclipse
+ * - http://www.laws.deinf.ufma.br
+ ******************************************************************************/
 package br.ufma.deinf.laws.util;
 
 import java.util.ArrayList;
@@ -63,19 +67,16 @@ import java.util.Set;
  *
  */
 
-public class MultiHashMap implements Map
-{
+public class MultiHashMap implements Map {
 	/** The {@link java.util.HashMap} that this class uses */
 	private HashMap map;
-
 
 	/**
 	 * <p>Constructs a new, empty map with a default capacity and load factor, which is 0.75.</p>
 	 *
 	 */
 
-	public MultiHashMap()
-	{
+	public MultiHashMap() {
 		map = new HashMap();
 	}
 
@@ -84,8 +85,7 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public MultiHashMap(int initialCapacity)
-	{
+	public MultiHashMap(int initialCapacity) {
 		map = new HashMap(initialCapacity);
 	}
 
@@ -94,8 +94,7 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public MultiHashMap(int initialCapacity, float loadFactor)
-	{
+	public MultiHashMap(int initialCapacity, float loadFactor) {
 		map = new HashMap(initialCapacity, loadFactor);
 	}
 
@@ -104,15 +103,12 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public boolean containsCollisionValue(Object value)
-	{
+	public boolean containsCollisionValue(Object value) {
 		// go through each value array checking for the value
 		Iterator valuesIterator = values().iterator();
-		while (valuesIterator.hasNext())
-		{
-			Collection keyList = (Collection)valuesIterator.next();
-			if (keyList.contains(value) )
-			{
+		while (valuesIterator.hasNext()) {
+			Collection keyList = (Collection) valuesIterator.next();
+			if (keyList.contains(value)) {
 				return true;
 			}
 		}
@@ -128,25 +124,21 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public Object put(Object key, Object value)
-	{
+	public Object put(Object key, Object value) {
 		Object previousValue = null;
 
 		// check to see if there is already a key for this type
-		if( map.containsKey(key) )
-		{
+		if (map.containsKey(key)) {
 			// use the ArrayList and add this item to it
-			Collection keyList = (Collection)map.get(key);
+			Collection keyList = (Collection) map.get(key);
 			keyList.add(value);
 			previousValue = map.put(key, keyList);
-		}
-		else
-		{
+		} else {
 			// create an ArrayList to place into this key
-			map.put( key, new ArrayList() );
+			map.put(key, new ArrayList());
 
 			// add the service to the list
-			Collection keyList = (Collection)map.get(key);
+			Collection keyList = (Collection) map.get(key);
 			keyList.add(value);
 			previousValue = map.put(key, keyList);
 		}
@@ -161,18 +153,16 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public Collection get(String key)
-	{
-		return (Collection)map.get(key);
+	public Collection get(String key) {
+		return (Collection) map.get(key);
 	}
 
 	/**
 	 * Returns the Collection of "collided" values.
 	 */
 
-	public Collection getCollisionList(Object key)
-	{
-		return (Collection)map.get(key);
+	public Collection getCollisionList(Object key) {
+		return (Collection) map.get(key);
 	}
 
 	/**
@@ -180,20 +170,16 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public void putAll(Map t)
-		throws UnsupportedOperationException
-	{
+	public void putAll(Map t) throws UnsupportedOperationException {
 		throw new UnsupportedOperationException();
 	}
 
 	/** See {@link java.util.HashMap#size()} */
-	public int size()
-	{
+	public int size() {
 		int total = 0;
 		Iterator keys = map.keySet().iterator();
 
-		while (keys.hasNext())
-		{
+		while (keys.hasNext()) {
 			String key = (String) keys.next();
 			ArrayList list = (ArrayList) map.get(key);
 			total += list.size();
@@ -207,77 +193,63 @@ public class MultiHashMap implements Map
 	 *
 	 */
 
-	public int size(String key)
-	{
+	public int size(String key) {
 		ArrayList list = (ArrayList) map.get(key);
 
-		if (list == null)
-		{
+		if (list == null) {
 			return 0;
-		}
-		else
-		{
+		} else {
 			return list.size();
 		}
 	}
 
 	/** See {@link java.util.HashMap#isEmpty()} */
-	public boolean isEmpty()
-	{
+	public boolean isEmpty() {
 		return map.isEmpty();
 	}
 
 	/** See {@link java.util.HashMap#containsValue(Object)} */
-	public boolean containsValue(Object value)
-	{
+	public boolean containsValue(Object value) {
 		return map.containsValue(value);
 	}
 
 	/** See {@link java.util.HashMap#containsKey(Object)} */
-	public boolean containsKey(Object key)
-	{
+	public boolean containsKey(Object key) {
 		return map.containsKey(key);
 	}
 
 	/** See {@link java.util.HashMap#get(Object)} */
-	public Object get(Object key)
-	{
+	public Object get(Object key) {
 		return map.get(key);
 	}
 
 	/** See {@link java.util.HashMap#remove(Object)} */
-	public Object remove(Object key)
-	{
+	public Object remove(Object key) {
 		return map.remove(key);
 	}
 
 	/** See {@link java.util.HashMap#clear()} */
-	public void clear()
-	{
+	public void clear() {
 		map.clear();
 	}
 
 	/** See {@link java.util.HashMap#clone()} */
-	public Object clone()
-	{
+	public Object clone() {
 		return map.clone();
 	}
 
 	/** See {@link java.util.HashMap#keySet()} */
-	public Set keySet()
-	{
+	public Set keySet() {
 		return map.keySet();
 	}
 
 	/** See {@link java.util.HashMap#values()} */
-	public Collection values()
-	{
+	public Collection values() {
 		return map.values();
 	}
 
 	/** See {@link java.util.HashMap#entrySet()} */
-	public Set entrySet()
-	{
+	public Set entrySet() {
 		return map.entrySet();
 	}
 }

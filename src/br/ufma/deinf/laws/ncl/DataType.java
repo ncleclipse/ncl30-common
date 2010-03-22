@@ -2,26 +2,31 @@
  * This file is part of the authoring environment in Nested Context Language -
  * NCL Eclipse.
  * 
- * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All
+ * Copyright: 2007-2010 UFMA/LAWS (Laboratory of Advanced Web Systems), All
  * Rights Reserved.
  * 
  * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License version 2 as published by the
- * Free Software Foundation. This program is distributed in the hope that it
- * will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
- * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
- * Public License version 2 for more details.
+ * the terms of the GNU General Public License version 2 as published by
+ * the Free Software Foundation.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License version 2 for
+ * more details.
  * 
  * You should have received a copy of the GNU General Public License version 2
- * along with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA For further
- * information contact: ncleclipse@laws.deinf.ufma.br
- * http://www.laws.deinf.ufma.br/ncleclipse http://www.laws.deinf.ufma.br
- ********************************************************************************/
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
+ * USA.
+ * 
+ * For further information contact:
+ * - ncleclipse@laws.deinf.ufma.br
+ * - http://www.laws.deinf.ufma.br/ncleclipse
+ * - http://www.laws.deinf.ufma.br
+ ******************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
@@ -74,8 +79,7 @@ public class DataType {
 	public static final int FONT_WEIGHT = 33;
 	public static final int PLAYER_LIFE = 34;
 	public static final int PARAM_VALUES = 35;
-	
-	
+
 	public DataType() {
 		// TODO Auto-generated constructor stub
 	}
@@ -156,8 +160,8 @@ public class DataType {
 	}
 
 	// Conjunto de letras ou numeros começando com uma letra ou underline
-	//TODO: Talvez o . deva ser substituído por caracteres específicos. 
-	//Verificar na especificação XML. 
+	// TODO: Talvez o . deva ser substituído por caracteres específicos.
+	// Verificar na especificação XML.
 	public static boolean isId(String str) {
 		Pattern p = Pattern.compile("^[_a-zA-Z].*$");
 		Matcher m = p.matcher(str);
@@ -181,11 +185,14 @@ public class DataType {
 	}
 
 	public static boolean isMIME_TYPE(String value) {
-		/*Vector<String> values = AttributeValues.getValues(DataType.MIME_TYPE);
-		if (values.contains(value))
-			return true; */
-		
-		//validation is in semantics
+		/*
+		 * Vector<String> values =
+		  AttributeValues.getValues(DataType.MIME_TYPE);
+		  if (values.contains(value))
+		  return true;
+		 */
+
+		// validation is in semantics
 		return true;
 	}
 
@@ -332,7 +339,6 @@ public class DataType {
 		return isId(value);
 	}
 
-	
 	private static boolean isBooleanValue(String value) {
 		Vector<String> values = AttributeValues
 				.getValues(DataType.BOOLEAN_VALUE);
@@ -349,12 +355,13 @@ public class DataType {
 	}
 
 	private static boolean isTransitionSubType(String value) {
-		//TODO: validate based on transition type
-		/* Vector<String> values = AttributeValues
-				.getValues(DataType.TRANSITION_SUBTYPE);
-		if (values.contains(value))
+		// TODO: validate based on transition type
+		/* 	Vector<String>  values = AttributeValues.
+				getValues(DataType.TRANSITION_SUBTYPE);
+			if (values.contains(value))
 			return true;
-		return false; */
+			return false;
+		 */
 		return isId(value);
 	}
 
@@ -421,7 +428,7 @@ public class DataType {
 		}
 		return true;
 	}
-	
+
 	private static boolean isZIndex(String value) {
 		try {
 			Integer t = new Integer(value);
