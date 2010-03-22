@@ -2,27 +2,32 @@
  * This file is part of the authoring environment in Nested Context Language -
  * NCL Eclipse.
  * 
- * Copyright: 2007-2009 UFMA/LAWS (Laboratory of Advanced Web Systems), All Rights Reserved.
+ * Copyright: 2007-2010 UFMA/LAWS (Laboratory of Advanced Web Systems), All
+ * Rights Reserved.
  * 
- * This program is free software; you can redistribute it and/or modify it under 
+ * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY 
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
- * PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more 
- * details.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License version 2 for
+ * more details.
  * 
  * You should have received a copy of the GNU General Public License version 2
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,
+ * USA.
+ * 
  * For further information contact:
- * 		ncleclipse@laws.deinf.ufma.br
- * 		http://www.laws.deinf.ufma.br/ncleclipse
- * 		http://www.laws.deinf.ufma.br
- ********************************************************************************/
+ * - ncleclipse@laws.deinf.ufma.br
+ * - http://www.laws.deinf.ufma.br/ncleclipse
+ * - http://www.laws.deinf.ufma.br
+ ******************************************************************************/
 package br.ufma.deinf.laws.ncl;
 
 import java.util.Vector;
+
 /**
  * Contains the defaults values of basics data types of NCL.
  * 
@@ -73,13 +78,13 @@ public class AttributeValues {
 			ret.add("application/x-ginga-time");
 			ret.add("application/x-ncl-time");
 		}
-		
+
 		if (type == DataType.INSTANCE) {
 			ret.add("new");
 			ret.add("instSame");
 			ret.add("gradSame");
 		}
-		
+
 		if (type == DataType.DEVICE) {
 			ret.add("systemScreen(i)");
 			ret.add("systemAudio(i)");
@@ -251,117 +256,117 @@ public class AttributeValues {
 			ret.add("system.javaConfiguration");
 			ret.add("system.javaProfile");
 			ret.add("system.luaVersion");
-			
+
 			ret.add("user.age");
 			ret.add("user.location");
 			ret.add("user.genre");
-			
+
 			ret.add("default.focusBorderColor");
 			ret.add("default.selBorberColor");
 			ret.add("default.focusBorderWidth");
 			ret.add("default.focusBorderTransparency");
-			
+
 			ret.add("service.currentFocus");
 			ret.add("service.currentKeyMaster");
-			
+
 			ret.add("service.currentFocus");
 			ret.add("service.currentKeyMaster");
-			
+
 			ret.add("si.numberOfServices");
 			ret.add("si.numberOfPartialServices");
 			ret.add("si.channelNumber");
-			
+
 			ret.add("channel.keyCapture");
 			ret.add("channel.virtualKeyboard");
 			ret.add("channel.keyboardBounds");
 		}
-		
-		if (type==DataType.FIT_VALUE){
+
+		if (type == DataType.FIT_VALUE) {
 			ret.add("fill");
 			ret.add("hidden");
 			ret.add("meet");
 			ret.add("meetBest");
 			ret.add("slice");
 		}
-		
-		if (type==DataType.SCROLL) {
+
+		if (type == DataType.SCROLL) {
 			ret.add("none");
 			ret.add("horizontal");
 			ret.add("vertical");
 			ret.add("both");
 			ret.add("automatic");
 		}
-		
-		if (type==DataType.FONT_VARIANT) {
+
+		if (type == DataType.FONT_VARIANT) {
 			ret.add("normal");
 			ret.add("small-caps");
 		}
-		
-		if (type==DataType.FONT_WEIGHT) {
+
+		if (type == DataType.FONT_WEIGHT) {
 			ret.add("normal");
 			ret.add("bold");
 		}
-		
-		if (type==DataType.PLAYER_LIFE) {
+
+		if (type == DataType.PLAYER_LIFE) {
 			ret.add("keep");
 			ret.add("close");
 		}
-		
-		if (type==DataType.PARAM_VALUES){
-			ret.add ("background");
-			ret.add ("balanceLevel"); 
-			ret.add ("baseDeviceRegion");
-			ret.add ("bassLevel");
-			ret.add ("bottom");
-			ret.add ("bounds");
-			ret.add ("deviceClass");
-			ret.add ("fit");
-			ret.add ("fontColor");
-			ret.add ("fontFamily");
-			ret.add ("fontStyle");
-			ret.add ("fontSize");
-			ret.add ("fontVariant");
-			ret.add ("fontWeight");
-			ret.add ("height");
-			ret.add ("left");
-			ret.add ("location");
-			ret.add ("plan");
-			ret.add ("player");
-			ret.add ("playerLife");
-			ret.add ("reusePlayer");
-			ret.add ("right");
-			ret.add ("scroll");
-			ret.add ("size");
-			ret.add ("soundLevel");
-			ret.add ("style");
-			ret.add ("top");
-			ret.add ("transInBorderColor");
-			ret.add ("transInBorderWidth");
-			ret.add ("transInDirection");
-			ret.add ("transInDur");
-			ret.add ("transInEndProgress");
-			ret.add ("transInFadeColor");
-			ret.add ("transInHorRepeat");
-			ret.add ("transInStartProgress");
-			ret.add ("TransInSubtype");
-			ret.add ("transInType");
-			ret.add ("transInVertRepeat");
-			ret.add ("transBorderColor");
-			ret.add ("transOutBorderWidth");
-			ret.add ("transOutDirection");
-			ret.add ("transOutDur");
-			ret.add ("transOutEndProgress");
-			ret.add ("transOutFadeColor");
-			ret.add ("transOutHorRepeat");
-			ret.add ("transOutType");
-			ret.add ("transOutStartProgress"); 
-			ret.add ("TransOutSubtype");
-			ret.add ("transOutVertRepeat");
-			ret.add ("transparency");
-			ret.add ("trebleLevel");
-			ret.add ("visible");
-			ret.add ("width");
-			ret.add ("zIndex"); 
+
+		if (type == DataType.PARAM_VALUES) {
+			ret.add("background");
+			ret.add("balanceLevel");
+			ret.add("baseDeviceRegion");
+			ret.add("bassLevel");
+			ret.add("bottom");
+			ret.add("bounds");
+			ret.add("deviceClass");
+			ret.add("fit");
+			ret.add("fontColor");
+			ret.add("fontFamily");
+			ret.add("fontStyle");
+			ret.add("fontSize");
+			ret.add("fontVariant");
+			ret.add("fontWeight");
+			ret.add("height");
+			ret.add("left");
+			ret.add("location");
+			ret.add("plan");
+			ret.add("player");
+			ret.add("playerLife");
+			ret.add("reusePlayer");
+			ret.add("right");
+			ret.add("scroll");
+			ret.add("size");
+			ret.add("soundLevel");
+			ret.add("style");
+			ret.add("top");
+			ret.add("transInBorderColor");
+			ret.add("transInBorderWidth");
+			ret.add("transInDirection");
+			ret.add("transInDur");
+			ret.add("transInEndProgress");
+			ret.add("transInFadeColor");
+			ret.add("transInHorRepeat");
+			ret.add("transInStartProgress");
+			ret.add("TransInSubtype");
+			ret.add("transInType");
+			ret.add("transInVertRepeat");
+			ret.add("transBorderColor");
+			ret.add("transOutBorderWidth");
+			ret.add("transOutDirection");
+			ret.add("transOutDur");
+			ret.add("transOutEndProgress");
+			ret.add("transOutFadeColor");
+			ret.add("transOutHorRepeat");
+			ret.add("transOutType");
+			ret.add("transOutStartProgress");
+			ret.add("TransOutSubtype");
+			ret.add("transOutVertRepeat");
+			ret.add("transparency");
+			ret.add("trebleLevel");
+			ret.add("visible");
+			ret.add("width");
+			ret.add("zIndex");
 		}
 		return ret;
 	}
