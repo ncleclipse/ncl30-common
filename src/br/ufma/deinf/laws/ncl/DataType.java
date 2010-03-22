@@ -34,9 +34,10 @@
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License version 2 for
- * more details. You should have received a copy of the GNU General Public License 
- * version 2 along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * more details. You should have received a copy of the GNU General Public 
+ * License  version 2 along with this program; if not, write to the Free 
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 
+ * 02110-1301, USA.
  *
  * For further information contact:
  * - ncleclipse@laws.deinf.ufma.br
@@ -55,7 +56,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * This class is responsible for validaing the basics data types of NCL.
+ * This class is responsible for validating the basics data types of NCL.
  * 
  * @author Roberto Azevedo
  * 
@@ -460,3 +461,4 @@ public class DataType {
 		return true;
 	}
 }
+
