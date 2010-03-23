@@ -1,4 +1,9 @@
 NEWS:
+Versao 1.5.1
+2010-03-23
+	- modificado TransInSubtype e TransOutSubtype para transInSubtype
+		e transOutSubtype, respectivamente.
+	
 Versao 1.5.0
 2010-03-19
 	- Atualizado nomes de descriptorParam.
@@ -13,7 +18,7 @@ Versao 1.4.6
 		atualizados. (AtributeValues) (ok)
 	- Sugestão dos atributos para property name. (ok)
 	
-Versao 1.4
+Versao 1.4.0
 2009-08-07
 	- regionBase.region: atributo adicionado (opcional). (ok)
 	- context.refer: nao pode mais sugerir id de NCL. (ok) 
