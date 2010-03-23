@@ -369,7 +369,7 @@ public class AttributeValues {
 			ret.add("transInFadeColor");
 			ret.add("transInHorRepeat");
 			ret.add("transInStartProgress");
-			ret.add("TransInSubtype");
+			ret.add("transInSubtype");
 			ret.add("transInType");
 			ret.add("transInVertRepeat");
 			ret.add("transBorderColor");
@@ -381,7 +381,7 @@ public class AttributeValues {
 			ret.add("transOutHorRepeat");
 			ret.add("transOutType");
 			ret.add("transOutStartProgress");
-			ret.add("TransOutSubtype");
+			ret.add("transOutSubtype");
 			ret.add("transOutVertRepeat");
 			ret.add("transparency");
 			ret.add("trebleLevel");
