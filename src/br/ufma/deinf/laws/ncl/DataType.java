@@ -441,7 +441,7 @@ public class DataType {
 	private static boolean isQuantity(String value) {
 		try {
 			Integer t = new Integer(value);
-			if (t.intValue() < 0)
+			if (t.intValue() < 1)
 				return false;
 		} catch (Exception e) {
 			// TODO: handle exception
