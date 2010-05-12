@@ -73,7 +73,7 @@ public abstract class Messages {
 			String output = formatter.format(messageArguments);
 			return output;
 		} catch (Exception e) {
-			return "";
+			return "!" + key + "!";
 		}
 	}
 
