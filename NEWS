@@ -1,5 +1,9 @@
 NEWS:
 Versao 1.5.1
+2010-04-19
+	- Adicionado tipo de dado TRANSITION_BORDER_COLOR, possui o valor BLEND a
+		mais do que o COLOR.
+		
 2010-03-23
 	- modificado TransInSubtype e TransOutSubtype para transInSubtype
 		e transOutSubtype, respectivamente.

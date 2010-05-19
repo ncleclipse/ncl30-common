@@ -414,7 +414,7 @@ public class NCLStructure {
 		att("transition", "horRepeat", false, DataType.INTEGER);
 		att("transition", "vertRepeat", false, DataType.INTEGER);
 		att("transition", "borderWidth", false, DataType.INTEGER);
-		att("transition", "borderColor", false, DataType.COLOR);
+		att("transition", "borderColor", false, DataType.TRANSITION_BORDER_COLOR);
 
 		// Extended Metainformation module
 		// meta

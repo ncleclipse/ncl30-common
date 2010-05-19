@@ -101,6 +101,8 @@ public class DataType {
 	public static final int PLAYER_LIFE = 34;
 	public static final int PARAM_VALUES = 35;
 
+	public static final int TRANSITION_BORDER_COLOR = 36;
+
 	public DataType() {
 		// TODO Auto-generated constructor stub
 	}
@@ -240,116 +242,132 @@ public class DataType {
 	public static boolean isDataType(int dataType, String value) {
 		boolean ok = true;
 		switch (dataType) {
-		case DataType.COORDINATE:
-			if (!DataType.isCoordinate(value))
-				ok = false;
-			break;
-		case DataType.INTEGER:
-			if (!DataType.isInteger(value))
-				ok = false;
-			break;
-		case DataType.STRING:
-			if (!DataType.isString(value))
-				ok = false;
-			break;
-		case DataType.DOUBLE:
-			if (!DataType.isDouble(value))
-				ok = false;
-			break;
-		case DataType.ID:
-			if (!DataType.isId(value))
-				ok = false;
-			break;
-		case DataType.TIME:
-			if (!DataType.isTime(value))
-				ok = false;
-			break;
-		case DataType.URI:
-			if (!DataType.isUri(value))
-				ok = false;
-			break;
-		case DataType.MIME_TYPE:
-			if (!DataType.isMIME_TYPE(value))
-				ok = false;
-			break;
-		case DataType.SIZE:
-			if (!DataType.isSize(value))
-				ok = false;
-			break;
-		case DataType.XMLNS:
-			if (!DataType.isXMLNS(value))
-				ok = false;
-			break;
-		case DataType.QUANTITY:
-			if (!DataType.isQuantity(value))
-				ok = false;
-			break;
-		case DataType.XCONNECTOR:
-			if (!DataType.isXConnector(value))
-				ok = false;
-			break;
-		case DataType.BOOLEAN_OPERATOR:
-			if (!DataType.isBoleanOperator(value))
-				ok = false;
-			break;
-		case DataType.SYNCHRONISM_OPERATOR:
-			if (!DataType.isSyncronismOperator(value))
-				ok = false;
-			break;
-		case DataType.INSTANCE:
-			if (!DataType.isInstance(value))
-				ok = false;
-			break;
-		case DataType.COMPARATOR:
-			if (!DataType.isComparator(value))
-				ok = false;
-			break;
-		case DataType.COLOR:
-			if (!DataType.isColor(value))
-				ok = false;
-			break;
-		case DataType.EVENT:
-			if (!DataType.isEvent(value))
-				ok = false;
-			break;
-		case DataType.TRANSITION:
-			if (!DataType.isTransition(value))
-				ok = false;
-			break;
-		case DataType.KEY:
-			if (!DataType.isKey(value))
-				ok = false;
-			break;
-		case DataType.ACTION:
-			if (!DataType.isAction(value))
-				ok = false;
-			break;
-		case DataType.TRANSITION_TYPE:
-			if (!DataType.isTransitionType(value))
-				ok = false;
-			break;
-		case DataType.DIRECTION:
-			if (!DataType.isDirection(value))
-				ok = false;
-			break;
-		case DataType.TRANSITION_SUBTYPE:
-			if (!DataType.isTransitionSubType(value))
-				ok = false;
-			break;
-		case DataType.BOOLEAN_VALUE:
-			if (!DataType.isBooleanValue(value))
-				ok = false;
-			break;
-		case DataType.PROPERTY_NAME:
-			if (!DataType.isPropertyNameValue(value))
-				ok = false;
-			break;
-		case DataType.ZINDEX:
-			if (!DataType.isZIndex(value))
-				ok = false;
-			break;
+			case DataType.COORDINATE:
+				if (!DataType.isCoordinate(value))
+					ok = false;
+				break;
+			case DataType.INTEGER:
+				if (!DataType.isInteger(value))
+					ok = false;
+				break;
+			case DataType.STRING:
+				if (!DataType.isString(value))
+					ok = false;
+				break;
+			case DataType.DOUBLE:
+				if (!DataType.isDouble(value))
+					ok = false;
+				break;
+			case DataType.ID:
+				if (!DataType.isId(value))
+					ok = false;
+				break;
+			case DataType.TIME:
+				if (!DataType.isTime(value))
+					ok = false;
+				break;
+			case DataType.URI:
+				if (!DataType.isUri(value))
+					ok = false;
+				break;
+			case DataType.MIME_TYPE:
+				if (!DataType.isMIME_TYPE(value))
+					ok = false;
+				break;
+			case DataType.SIZE:
+				if (!DataType.isSize(value))
+					ok = false;
+				break;
+			case DataType.XMLNS:
+				if (!DataType.isXMLNS(value))
+					ok = false;
+				break;
+			case DataType.QUANTITY:
+				if (!DataType.isQuantity(value))
+					ok = false;
+				break;
+			case DataType.XCONNECTOR:
+				if (!DataType.isXConnector(value))
+					ok = false;
+				break;
+			case DataType.BOOLEAN_OPERATOR:
+				if (!DataType.isBoleanOperator(value))
+					ok = false;
+				break;
+			case DataType.SYNCHRONISM_OPERATOR:
+				if (!DataType.isSyncronismOperator(value))
+					ok = false;
+				break;
+			case DataType.INSTANCE:
+				if (!DataType.isInstance(value))
+					ok = false;
+				break;
+			case DataType.COMPARATOR:
+				if (!DataType.isComparator(value))
+					ok = false;
+				break;
+			case DataType.COLOR:
+				if (!DataType.isColor(value))
+					ok = false;
+				break;
+			case DataType.EVENT:
+				if (!DataType.isEvent(value))
+					ok = false;
+				break;
+			case DataType.TRANSITION:
+				if (!DataType.isTransition(value))
+					ok = false;
+				break;
+			case DataType.KEY:
+				if (!DataType.isKey(value))
+					ok = false;
+				break;
+			case DataType.ACTION:
+				if (!DataType.isAction(value))
+					ok = false;
+				break;
+			case DataType.TRANSITION_TYPE:
+				if (!DataType.isTransitionType(value))
+					ok = false;
+				break;
+			case DataType.DIRECTION:
+				if (!DataType.isDirection(value))
+					ok = false;
+				break;
+			case DataType.TRANSITION_SUBTYPE:
+				if (!DataType.isTransitionSubType(value))
+					ok = false;
+				break;
+			case DataType.BOOLEAN_VALUE:
+				if (!DataType.isBooleanValue(value))
+					ok = false;
+				break;
+			case DataType.PROPERTY_NAME:
+				if (!DataType.isPropertyNameValue(value))
+					ok = false;
+				break;
+			case DataType.ZINDEX:
+				if (!DataType.isZIndex(value))
+					ok = false;
+				break;
+			case DataType.TRANSITION_BORDER_COLOR:
+				if (!DataType.isTransitionBorderColor(value))
+					ok = false;
+				break;
 		}
 		return ok;
+	}
+
+	/**
+	 * @param value
+	 * @return
+	 */
+	private static boolean isTransitionBorderColor(String value) {
+		Vector<String> values = AttributeValues
+				.getValues(DataType.TRANSITION_BORDER_COLOR);
+		if (values.contains(value))
+			return true;
+		return false;
 	}
 
 	/**

@@ -148,7 +148,7 @@ public class AttributeValues {
 			ret.add("resume");
 			ret.add("pause");
 		}
-		if (type == DataType.COLOR) {
+		if (type == DataType.COLOR || type == DataType.TRANSITION_BORDER_COLOR) {
 			ret.add("white");
 			ret.add("black");
 			ret.add("silver");
@@ -165,6 +165,9 @@ public class AttributeValues {
 			ret.add("navy");
 			ret.add("aqua");
 			ret.add("teal");
+		}
+		if(type == DataType.TRANSITION_BORDER_COLOR){
+			ret.add("blend");
 		}
 		if (type == DataType.TRANSITION) {
 			ret.add("starts");
