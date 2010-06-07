@@ -160,11 +160,16 @@ public class DataType {
 
 	// FORMATO: 9s, 90s, 11s
 	// Tem minuto e hora também???
-	public static boolean isTime(String str) {
-		Pattern p = Pattern.compile("^[0-9]*[.]?[0-9]*[s]$");
+	public static boolean isTime(String str) {		 
+		Pattern p = Pattern.compile("^((([0-1]?[0-9]|[2][0-3])[:])?([0-5]?[0-9])[:])?([0-5]?[0-9])([.][0-9]*)?$");
+		// para nao reconhecer apenas numeros
+		Pattern p2 = Pattern.compile("^[0-9]*$");
+		// para reconhecer em segundos
+		Pattern p3 = Pattern.compile("^[0-9]*[s]$");
 		Matcher m = p.matcher(str);
-
-		return m.matches();
+		Matcher m2 = p2.matcher(str);
+		Matcher m3 = p3.matcher(str);
+		return ( m.matches() && !m2.matches() ) || m3.matches();
 	}
 
 	public static boolean isUri(String str) {
