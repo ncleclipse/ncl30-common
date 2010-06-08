@@ -260,49 +260,76 @@ public class AttributeValues {
 			ret.add("false");
 		}
 		if (type == DataType.PROPERTY_NAME) {
-			ret.add("system.language");
-			ret.add("system.caption");
-			ret.add("system.subtitle");
-			ret.add("system.returnBitRate (i)");
-			ret.add("system.screenSize");
-			ret.add("system.screenGraphicSize");
-			ret.add("system.audioType");
-			ret.add("system.screenSize (i)");
-			ret.add("system.screenGraphicSize (i)");
-			ret.add("system.audioType (i)");
-			ret.add("system.devNumber (i)");
-			ret.add("system.classType (i)");
-			ret.add("system.info (i)");
-			ret.add("system.classNumber");
-			ret.add("system.CPU");
-			ret.add("system.memory");
-			ret.add("system.operatingSystem");
-			ret.add("system.javaConfiguration");
-			ret.add("system.javaProfile");
-			ret.add("system.luaVersion");
-
-			ret.add("user.age");
-			ret.add("user.location");
-			ret.add("user.genre");
-
-			ret.add("default.focusBorderColor");
-			ret.add("default.selBorberColor");
-			ret.add("default.focusBorderWidth");
-			ret.add("default.focusBorderTransparency");
-
-			ret.add("service.currentFocus");
-			ret.add("service.currentKeyMaster");
-
-			ret.add("service.currentFocus");
-			ret.add("service.currentKeyMaster");
-
-			ret.add("si.numberOfServices");
-			ret.add("si.numberOfPartialServices");
-			ret.add("si.channelNumber");
-
+			ret.add("channel.keyboardBounds");
 			ret.add("channel.keyCapture");
 			ret.add("channel.virtualKeyboard");
-			ret.add("channel.keyboardBounds");
+			
+			ret.add("default.focusBorderColor");
+			ret.add("default.focusBorderTransparency");
+			ret.add("default.focusBorderWidth");
+			ret.add("default.selBorberColor");
+			
+			ret.add("service.currentFocus");
+			ret.add("service.currentKeyMaster");
+			
+			ret.add("si.channelNumber");
+			ret.add("si.numberOfPartialServices");
+			ret.add("si.numberOfServices");
+			
+			ret.add("system.audioType");
+			ret.add("system.audioType (i)");
+			ret.add("system.caption");
+			ret.add("system.classNumber");
+			ret.add("system.classType (i)");
+			ret.add("system.CPU");
+			ret.add("system.devNumber (i)");
+			ret.add("system.info (i)");
+			ret.add("system.javaConfiguration");
+			ret.add("system.javaProfile");
+			ret.add("system.language");
+			ret.add("system.luaVersion");
+			ret.add("system.memory");
+			ret.add("system.operatingSystem");
+			ret.add("system.returnBitRate (i)");
+			ret.add("system.screenGraphicSize");
+			ret.add("system.screenGraphicSize (i)");
+			ret.add("system.screenSize");
+			ret.add("system.screenSize (i)");
+			ret.add("system.subtitle");
+			
+			ret.add("user.age");
+			ret.add("user.genre");
+			ret.add("user.location");
+						
+			ret.add("background");
+			ret.add("balanceLevel");
+			ret.add("bassLevel");
+			ret.add("bottom");
+			ret.add("bounds");
+			ret.add("explicitDur");
+			ret.add("fit");
+			ret.add("fontColor");
+			ret.add("fontFamily");
+			ret.add("fontSize");
+			ret.add("fontStyle");
+			ret.add("fontVariant");
+			ret.add("fontWeight");
+			ret.add("height");
+			ret.add("left");
+			ret.add("location");
+			ret.add("playerLife");
+			ret.add("reusePlayer");
+			ret.add("right");
+			ret.add("scroll");
+			ret.add("size");
+			ret.add("soundLevel");
+			ret.add("style");
+			ret.add("top");
+			ret.add("transparency");
+			ret.add("trebleLevel");
+			ret.add("visible");
+			ret.add("width");
+			
 		}
 
 		if (type == DataType.FIT_VALUE) {
@@ -335,7 +362,7 @@ public class AttributeValues {
 			ret.add("keep");
 			ret.add("close");
 		}
-
+		
 		if (type == DataType.PARAM_VALUES) {
 			ret.add("background");
 			ret.add("balanceLevel");
@@ -393,5 +420,42 @@ public class AttributeValues {
 			ret.add("zIndex");
 		}
 		return ret;
+	}
+
+	/**
+	 * @param name
+	 * @return
+	 */
+	public static Vector<String> getValuesFromProperty(String property) {
+		Vector<String> suggest = new Vector <String> ();
+		
+		if (property.equals("background"))
+			suggest = AttributeValues.getValues(DataType.COLOR);
+
+		else if (property.equals("visible"))
+			suggest = AttributeValues.getValues(DataType.BOOLEAN_VALUE);
+
+		else if (property.equals("fit"))
+			suggest = AttributeValues.getValues(DataType.FIT_VALUE);
+
+		else if (property.equals("scroll"))
+			suggest = AttributeValues.getValues(DataType.SCROLL);
+
+		else if (property.equals("fontColor"))
+			suggest = AttributeValues.getValues(DataType.COLOR);
+
+		else if (property.equals("fontVariant"))
+			suggest = AttributeValues.getValues(DataType.FONT_VARIANT);
+
+		else if (property.equals("fontWeight"))
+			suggest = AttributeValues.getValues(DataType.FONT_WEIGHT);
+
+		else if (property.equals("playerLife"))
+			suggest = AttributeValues.getValues(DataType.PLAYER_LIFE);
+
+		else if (property.equals("reusePlayer"))
+			suggest = AttributeValues.getValues(DataType.BOOLEAN_VALUE);
+					
+		return suggest;
 	}
 }

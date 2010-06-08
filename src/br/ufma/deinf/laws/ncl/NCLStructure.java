@@ -221,7 +221,7 @@ public class NCLStructure {
 		ct("descriptor", "descriptorParam", '*');
 
 		// descriptorParam
-		att("descriptorParam", "name", true, DataType.ID);
+		att("descriptorParam", "name", true, DataType.PARAM_VALUES);
 		att("descriptorParam", "value", true, DataType.STRING);
 
 		// descriptorBase
