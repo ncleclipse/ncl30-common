@@ -103,6 +103,8 @@ public class DataType {
 
 	public static final int TRANSITION_BORDER_COLOR = 36;
 
+	public static final int TIME2 = 37;
+	
 	public DataType() {
 		// TODO Auto-generated constructor stub
 	}
@@ -161,17 +163,23 @@ public class DataType {
 	// FORMATO: 9s, 90s, 11s
 	// Tem minuto e hora também???
 	public static boolean isTime(String str) {		 
-		Pattern p = Pattern.compile("^((([0-1]?[0-9]|[2][0-3])[:])?([0-5]?[0-9])[:])?([0-5]?[0-9])([.][0-9]*)?$");
+		Pattern p = Pattern.compile("^((([0-1]?[0-9]|[2][0-3])[:])([0-5]?[0-9])[:])([0-5]?[0-9])([.][0-9]+)$");
 		// para nao reconhecer apenas numeros
 		Pattern p2 = Pattern.compile("^[0-9]*$");
 		// para reconhecer em segundos
-		Pattern p3 = Pattern.compile("^[0-9]*[s]$");
+		Pattern p3 = Pattern.compile("^[0-9]+([.][0-9]+)?[s]$");
 		Matcher m = p.matcher(str);
 		Matcher m2 = p2.matcher(str);
 		Matcher m3 = p3.matcher(str);
 		return ( m.matches() && !m2.matches() ) || m3.matches();
 	}
 
+	public static boolean isTime2(String str) {
+		Pattern p = Pattern.compile("^(([0-9]*)[:]([0]?[0-9]|[1][0-2])[:]([0-2]?[0-9]|[3][0-1])[:](([0-1]?[0-9]|[2][0-3])[:])([0-5]?[0-9])[:])([0-5]?[0-9])([.][0-9]+)$");
+		Matcher m = p.matcher(str);
+		return m.matches();
+	}
+	
 	public static boolean isUri(String str) {
 		try {
 			// URL url = new URL(str);
@@ -269,6 +277,10 @@ public class DataType {
 				break;
 			case DataType.TIME:
 				if (!DataType.isTime(value))
+					ok = false;
+				break;
+			case DataType.TIME2:
+				if (!DataType.isTime2(value))
 					ok = false;
 				break;
 			case DataType.URI:

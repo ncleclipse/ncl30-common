@@ -169,7 +169,11 @@ public class NCLStructure {
 		att("area", "first", false, DataType.STRING);
 		att("area", "last", false, DataType.STRING);
 		att("area", "label", false, DataType.STRING);
-
+		
+		att("area", "begin2",false, DataType.TIME2);
+		att("area", "end2",false, DataType.TIME2);
+		
+		
 		// ainda nao faz parte da norma
 		att("area", "clip", false, DataType.STRING);
 		att("area", "beginOffset", false, DataType.STRING);
