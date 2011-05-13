@@ -475,6 +475,7 @@ public class NCLStructure {
 		ref("bind", "interface", "property", "name");
 		ref("bind", "interface", "switchPort", "id");
 		ref("bind", "descriptor", "descriptor", "id");
+		ref("bind", "descriptor", "descriptorSwitch", "id");
 
 		// bindParam
 		// ref("bindParam", "name", "connectorParam", "name");
