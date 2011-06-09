@@ -53,6 +53,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Vector;
 
 import br.ufma.deinf.laws.util.MultiHashMap;
 
@@ -766,5 +767,29 @@ public class NCLStructure {
 			}
 		}
 		return ret;
+	}
+	
+	public Vector<String> getRootElements()
+	{
+		Vector <String> vet = new Vector<String>();
+		Iterator it = nesting.keySet().iterator();
+		Iterator it2;
+		while(it.hasNext())
+		{
+			String tagname = (String) it.next();
+			it2 = nesting.keySet().iterator();
+			boolean isRoot = true;
+			while(it2.hasNext())
+			{
+				// if the tagname is child of some other it is not a root Element.
+				if (nesting.get((String) it2.next()).containsKey(tagname))
+					isRoot = false;
+			}
+			if(isRoot)
+			{
+				vet.add(tagname);
+			}
+		}
+		return vet;
 	}
 }
