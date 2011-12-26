@@ -1,4 +1,8 @@
 NEWS:
+Versao 1.6.0
+	- Adicionado tipo de dado SETTINGS_PROPERTY, para uso no <rule var=""> e 
+	  na sugestão de propriedades.
+	   
 Versao 1.5.1
 2010-04-19
 	- Adicionado tipo de dado TRANSITION_BORDER_COLOR, possui o valor BLEND a

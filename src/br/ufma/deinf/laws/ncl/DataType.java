@@ -102,6 +102,8 @@ public class DataType {
 	public static final int DESCRIPTOR_PARAMS = 35;
 
 	public static final int TRANSITION_BORDER_COLOR = 36;
+	
+	public static final int SETTINGS_PROPERTY = 37;
 
 	public DataType() {
 		// TODO Auto-generated constructor stub

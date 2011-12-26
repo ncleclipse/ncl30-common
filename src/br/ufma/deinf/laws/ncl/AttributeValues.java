@@ -259,7 +259,41 @@ public class AttributeValues {
 			ret.add("true");
 			ret.add("false");
 		}
-		if (type == DataType.PROPERTY_NAME) {
+		
+		//TODO: Split property and settings values
+		if (type == DataType.PROPERTY_NAME) {					
+			ret.add("background");
+			ret.add("balanceLevel");
+			ret.add("bassLevel");
+			ret.add("bottom");
+			ret.add("bounds");
+			ret.add("explicitDur");
+			ret.add("fit");
+			ret.add("fontColor");
+			ret.add("fontFamily");
+			ret.add("fontSize");
+			ret.add("fontStyle");
+			ret.add("fontVariant");
+			ret.add("fontWeight");
+			ret.add("height");
+			ret.add("left");
+			ret.add("location");
+			ret.add("playerLife");
+			ret.add("reusePlayer");
+			ret.add("right");
+			ret.add("scroll");
+			ret.add("size");
+			ret.add("soundLevel");
+			ret.add("style");
+			ret.add("top");
+			ret.add("transparency");
+			ret.add("trebleLevel");
+			ret.add("visible");
+			ret.add("width");
+			ret.add("zIndex");
+		}
+		
+		if(type == DataType.SETTINGS_PROPERTY || type == DataType.PROPERTY_NAME) {
 			ret.add("channel.keyboardBounds");
 			ret.add("channel.keyCapture");
 			ret.add("channel.virtualKeyboard");
@@ -300,36 +334,6 @@ public class AttributeValues {
 			ret.add("user.age");
 			ret.add("user.genre");
 			ret.add("user.location");
-						
-			ret.add("background");
-			ret.add("balanceLevel");
-			ret.add("bassLevel");
-			ret.add("bottom");
-			ret.add("bounds");
-			ret.add("explicitDur");
-			ret.add("fit");
-			ret.add("fontColor");
-			ret.add("fontFamily");
-			ret.add("fontSize");
-			ret.add("fontStyle");
-			ret.add("fontVariant");
-			ret.add("fontWeight");
-			ret.add("height");
-			ret.add("left");
-			ret.add("location");
-			ret.add("playerLife");
-			ret.add("reusePlayer");
-			ret.add("right");
-			ret.add("scroll");
-			ret.add("size");
-			ret.add("soundLevel");
-			ret.add("style");
-			ret.add("top");
-			ret.add("transparency");
-			ret.add("trebleLevel");
-			ret.add("visible");
-			ret.add("width");
-			ret.add("zIndex");
 		}
 
 		if (type == DataType.FIT_VALUE) {
@@ -363,7 +367,7 @@ public class AttributeValues {
 			ret.add("close");
 		}
 		
-		// Why we have two type with almost all
+		// Why we have two type with almost all?
 		if (type == DataType.DESCRIPTOR_PARAMS) {
 			ret.add("background");
 			ret.add("balanceLevel");

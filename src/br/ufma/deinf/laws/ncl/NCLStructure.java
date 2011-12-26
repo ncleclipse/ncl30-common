@@ -343,7 +343,7 @@ public class NCLStructure {
 
 		// rule
 		att("rule", "id", true, DataType.ID);
-		att("rule", "var", true);
+		att("rule", "var", true, DataType.SETTINGS_PROPERTY);
 		att("rule", "comparator", true, DataType.COMPARATOR);
 		att("rule", "value", true);
 
