@@ -459,8 +459,7 @@ public class NCLStructure {
 		ref("port", "component", "switch", "id");
 		ref("port", "interface", "area", "id");
 		ref("port", "interface", "port", "id");
-		// ref("port", "interface", "property", "name"); //Dúvida! Verificar
-		// isto!
+		ref("port", "interface", "property", "name"); //Dúvida! Verificar isto!
 
 		// bind
 		ref("bind", "component", "media", "id");
