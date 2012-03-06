@@ -104,6 +104,10 @@ public class DataType {
 	public static final int TRANSITION_BORDER_COLOR = 36;
 	
 	public static final int SETTINGS_PROPERTY = 37;
+	
+	
+	//TAL
+	public static final int TAL_Template_ID = 38;
 
 	public DataType() {
 		// TODO Auto-generated constructor stub
