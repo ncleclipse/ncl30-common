@@ -145,10 +145,6 @@ public class NCLStructure {
 		// gradSame
 		att("media", "type", false, DataType.MIME_TYPE); // Não ta funcionando
 		att("media", "descriptor", false, DataType.ID);
-		
-		//Module "Classification" of TAL
-		att("media", "tal:class", false, DataType.TAL_Template_ID);
-		
 		ct("media", "area", '*');
 		ct("media", "property", '*');
 
@@ -156,13 +152,6 @@ public class NCLStructure {
 		// context
 		att("context", "id", true, DataType.ID);
 		att("context", "refer", false, DataType.ID);
-		
-		//Module "Classification" of TAL
-		att("context", "tal:template", false, DataType.TAL_Template_ID);
-		att("context", "tal:class", false, DataType.ID);
-		
-		
-		
 		ct("context", "port", '*');
 		ct("context", "property", '*');
 		ct("context", "media", '*');
@@ -181,10 +170,6 @@ public class NCLStructure {
 		att("area", "first", false, DataType.STRING);
 		att("area", "last", false, DataType.STRING);
 		att("area", "label", false, DataType.STRING);
-		
-		//Module "Classification" of TAL
-		att("area", "tal:class", false, DataType.ID);
-		
 
 		// ainda nao faz parte da norma
 		att("area", "clip", false, DataType.STRING);
@@ -203,9 +188,6 @@ public class NCLStructure {
 		// property
 		att("property", "name", true, DataType.PROPERTY_NAME);
 		att("property", "value", false, DataType.STRING);
-		
-		//Module "Classification" of TAL
-		att("property", "tal:class", false, DataType.ID);
 
 		// Extended SwitchInterface Module
 		// switchPort
@@ -380,11 +362,6 @@ public class NCLStructure {
 		// switch
 		att("switch", "id", true, DataType.ID);
 		att("switch", "refer", false);
-		
-		//Module "Classification" of TAL
-		att("switch", "tal:template", false, DataType.TAL_Template_ID);
-		att("switch", "tal:class", false, DataType.ID);
-		
 		ct("switch", "defaultComponent", '?');
 		ct("switch", "switchPort", '*');
 		ct("switch", "bindRule", '*');
