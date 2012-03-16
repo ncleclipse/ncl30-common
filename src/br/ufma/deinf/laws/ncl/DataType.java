@@ -1,22 +1,22 @@
 /*******************************************************************************
- * Este arquivo é parte da implementação do ambiente de autoria em Nested 
+ * Este arquivo Ã© parte da implementaÃ§Ã£o do ambiente de autoria em Nested 
  * Context Language - NCL Eclipse.
- * Direitos Autorais Reservados (c) 2007-2010 UFMA/LAWS (Laboratório de Sistemas 
- * Avançados da Web)
+ * Direitos Autorais Reservados (c) 2007-2010 UFMA/LAWS (LaboratÃ³rio de Sistemas 
+ * AvanÃ§ados da Web)
  *
- * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo sob
- * os termos da Licença Pública Geral GNU versão 2 conforme publicada pela Free 
+ * Este programa Ã© software livre; vocÃª pode redistribuÃ­-lo e/ou modificÃ¡-lo sob
+ * os termos da LicenÃ§a PÃºblica Geral GNU versÃ£o 2 conforme publicada pela Free 
  * Software Foundation.
  *
- * Este programa é distribuído na expectativa de que seja útil, porém, SEM 
- * NENHUMA GARANTIA; nem mesmo a garantia implícita de COMERCIABILIDADE OU
- * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral do
- * GNU versão 2 para mais detalhes. Você deve ter recebido uma cópia da Licença
- * Pública Geral do GNU versão 2 junto com este programa; se não, escreva para a
- * Free Software Foundation, Inc., no endereço 59 Temple Street, Suite 330,
+ * Este programa Ã© distribuÃ­do na expectativa de que seja Ãºtil, porÃ©m, SEM 
+ * NENHUMA GARANTIA; nem mesmo a garantia implÃ­cita de COMERCIABILIDADE OU
+ * ADEQUAÃ‡ÃƒO A UMA FINALIDADE ESPECÃ�FICA. Consulte a LicenÃ§a PÃºblica Geral do
+ * GNU versÃ£o 2 para mais detalhes. VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a
+ * PÃºblica Geral do GNU versÃ£o 2 junto com este programa; se nÃ£o, escreva para a
+ * Free Software Foundation, Inc., no endereÃ§o 59 Temple Street, Suite 330,
  * Boston, MA 02111-1307 USA.
  *
- * Para maiores informações:
+ * Para maiores informaÃ§Ãµes:
  * - ncleclipse@laws.deinf.ufma.br
  * - http://www.laws.deinf.ufma.br/ncleclipse
  * - http://www.laws.deinf.ufma.br
@@ -78,7 +78,7 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
-	public static final int DEVICE = 15; // validacaoo feita no semântico (gera
+	public static final int DEVICE = 15; // validacaoo feita no semÃ¢ntico (gera
 	// um warning).
 	public static final int COMPARATOR = 16;
 	public static final int SIMPLEACTION_ROLE = 17;
@@ -108,7 +108,11 @@ public class DataType {
 	
 	//TAL
 	public static final int TAL_Template_ID = 38;
-
+	
+	public static final int MIN_QUANTITY = 39;
+	public static final int MAX_QUANTITY = 40;
+	
+	
 	public DataType() {
 		// TODO Auto-generated constructor stub
 	}
@@ -154,7 +158,7 @@ public class DataType {
 	 * FORMATOS rectangle: left-x,top-y,right-x,bottom-y circle:
 	 * center-x,center-y,radius polygon: x1,y1,x2,y2,...,xN,yN
 	 * 
-	 * Por enquanto os valores são inteiros. Tem que melhorar. Xn e Yn tem que
+	 * Por enquanto os valores sÃ£o inteiros. Tem que melhorar. Xn e Yn tem que
 	 * ter a mesma quantidade
 	 */
 	public static boolean isCoordinate(String str) {
@@ -194,9 +198,9 @@ public class DataType {
 		return false;
 	}
 
-	// Conjunto de letras ou numeros começando com uma letra ou underline
-	// TODO: Talvez o . deva ser substituído por caracteres específicos.
-	// Verificar na especificação XML.
+	// Conjunto de letras ou numeros comeÃ§ando com uma letra ou underline
+	// TODO: Talvez o . deva ser substituÃ­do por caracteres especÃ­ficos.
+	// Verificar na especificaÃ§Ã£o XML.
 	public static boolean isId(String str) {
 		Pattern p = Pattern.compile("^[_a-zA-Z].*$");
 		Matcher m = p.matcher(str);
