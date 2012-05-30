@@ -311,24 +311,24 @@ public class AttributeValues {
 			ret.add("si.numberOfServices");
 			
 			ret.add("system.audioType");
-			ret.add("system.audioType (i)");
+			ret.add("system.audioType(i)");
 			ret.add("system.caption");
 			ret.add("system.classNumber");
-			ret.add("system.classType (i)");
+			ret.add("system.classType(i)");
 			ret.add("system.CPU");
-			ret.add("system.devNumber (i)");
-			ret.add("system.info (i)");
+			ret.add("system.devNumber(i)");
+			ret.add("system.info(i)");
 			ret.add("system.javaConfiguration");
 			ret.add("system.javaProfile");
 			ret.add("system.language");
 			ret.add("system.luaVersion");
 			ret.add("system.memory");
 			ret.add("system.operatingSystem");
-			ret.add("system.returnBitRate (i)");
+			ret.add("system.returnBitRate(i)");
 			ret.add("system.screenGraphicSize");
-			ret.add("system.screenGraphicSize (i)");
+			ret.add("system.screenGraphicSize(i)");
 			ret.add("system.screenSize");
-			ret.add("system.screenSize (i)");
+			ret.add("system.screenSize(i)");
 			ret.add("system.subtitle");
 			
 			ret.add("user.age");
