@@ -1,22 +1,22 @@
 /*******************************************************************************
- * Este arquivo Ã© parte da implementaÃ§Ã£o do ambiente de autoria em Nested 
+ * Este arquivo é parte da implementação do ambiente de autoria em Nested 
  * Context Language - NCL Eclipse.
- * Direitos Autorais Reservados (c) 2007-2010 UFMA/LAWS (LaboratÃ³rio de Sistemas 
- * AvanÃ§ados da Web)
+ * Direitos Autorais Reservados (c) 2007-2010 UFMA/LAWS (Laboratório de Sistemas 
+ * Avançados da Web)
  *
- * Este programa Ã© software livre; vocÃª pode redistribuÃ­-lo e/ou modificÃ¡-lo sob
- * os termos da LicenÃ§a PÃºblica Geral GNU versÃ£o 2 conforme publicada pela Free 
+ * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo sob
+ * os termos da Licença Pública Geral GNU versão 2 conforme publicada pela Free 
  * Software Foundation.
  *
- * Este programa Ã© distribuÃ­do na expectativa de que seja Ãºtil, porÃ©m, SEM 
- * NENHUMA GARANTIA; nem mesmo a garantia implÃ­cita de COMERCIABILIDADE OU
- * ADEQUAÃ‡ÃƒO A UMA FINALIDADE ESPECÃ�FICA. Consulte a LicenÃ§a PÃºblica Geral do
- * GNU versÃ£o 2 para mais detalhes. VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a
- * PÃºblica Geral do GNU versÃ£o 2 junto com este programa; se nÃ£o, escreva para a
- * Free Software Foundation, Inc., no endereÃ§o 59 Temple Street, Suite 330,
+ * Este programa é distribuído na expectativa de que seja útil, porém, SEM 
+ * NENHUMA GARANTIA; nem mesmo a garantia implícita de COMERCIABILIDADE OU
+ * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral do
+ * GNU versão 2 para mais detalhes. Você deve ter recebido uma cópia da Licença
+ * Pública Geral do GNU versão 2 junto com este programa; se não, escreva para a
+ * Free Software Foundation, Inc., no endereço 59 Temple Street, Suite 330,
  * Boston, MA 02111-1307 USA.
  *
- * Para maiores informaÃ§Ãµes:
+ * Para maiores informações:
  * - ncleclipse@laws.deinf.ufma.br
  * - http://www.laws.deinf.ufma.br/ncleclipse
  * - http://www.laws.deinf.ufma.br
@@ -132,7 +132,7 @@ public class NCLStructure {
 		att("region", "height", false, DataType.SIZE);
 		att("region", "width", false, DataType.SIZE);
 		att("region", "zIndex", false, DataType.ZINDEX); // pode ser negativo
-		// (nÃ£o ta
+		// (não ta
 		// funcionando)
 		ct("region", "region", '*');
 
@@ -143,7 +143,7 @@ public class NCLStructure {
 		att("media", "refer", false, DataType.ID);
 		att("media", "instance", false, DataType.INSTANCE); // new, instSame,
 		// gradSame
-		att("media", "type", false, DataType.MIME_TYPE); // NÃ£o ta funcionando
+		att("media", "type", false, DataType.MIME_TYPE); // Não ta funcionando
 		att("media", "descriptor", false, DataType.ID);
 		ct("media", "area", '*');
 		ct("media", "property", '*');
@@ -179,9 +179,9 @@ public class NCLStructure {
 		// Extended CompositeNodeInterface Module
 		// port
 		att("port", "id", true, DataType.ID);
-		att("port", "component", true, DataType.ID); // Verificar se Ã© isso
+		att("port", "component", true, DataType.ID); // Verificar se é isso
 		// mesmo
-		att("port", "interface", false, DataType.ID); // Verificar se Ã© isso
+		att("port", "interface", false, DataType.ID); // Verificar se é isso
 		// mesmo
 
 		// Extended AttributeAnchor Module
@@ -213,8 +213,8 @@ public class NCLStructure {
 		att("descriptor", "focusBorderColor", false, DataType.COLOR);
 		att("descriptor", "focusBorderWidth", false);
 		att("descriptor", "focusBorderTransparency", false);
-		att("descriptor", "focusSrc", false, DataType.URI); // Ã© isso mesmo ??
-		att("descriptor", "focusSelSrc", false, DataType.URI); // Ã© isso mesmo
+		att("descriptor", "focusSrc", false, DataType.URI); // é isso mesmo ??
+		att("descriptor", "focusSelSrc", false, DataType.URI); // é isso mesmo
 		// ??
 		att("descriptor", "selBorderColor", false, DataType.COLOR);
 		att("descriptor", "transIn", false);
@@ -459,7 +459,7 @@ public class NCLStructure {
 		ref("port", "component", "switch", "id");
 		ref("port", "interface", "area", "id");
 		ref("port", "interface", "port", "id");
-		ref("port", "interface", "property", "name"); //DÃºvida! Verificar isto!
+		ref("port", "interface", "property", "name"); //Dúvida! Verificar isto!
 
 		// bind
 		ref("bind", "component", "media", "id");
@@ -518,9 +518,9 @@ public class NCLStructure {
 	}
 
 	/**
-	 * Retorna a instÃ¢ncia Ãºnica da classe
+	 * Retorna a instância única da classe
 	 * 
-	 * @return A instÃ¢ncia de {@link NCLStructure}
+	 * @return A instância de {@link NCLStructure}
 	 */
 	public static NCLStructure getInstance() {
 		if (instance == null)
@@ -572,7 +572,7 @@ public class NCLStructure {
 		atts.put(attributeName, required);
 	}
 
-	// AlÃ©m de gravar se Ã© requerido ou nÃ£o verifica o tipo do dado
+	// Além de gravar se é requerido ou não verifica o tipo do dado
 	private void att(String elementName, String attributeName,
 			boolean required, int type) {
 		if (!attributes.containsKey(elementName)) {
