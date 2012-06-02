@@ -269,6 +269,7 @@ public class AttributeValues {
 			ret.add("bounds");
 			ret.add("explicitDur");
 			ret.add("fit");
+			ret.add("focusIndex");
 			ret.add("fontColor");
 			ret.add("fontFamily");
 			ret.add("fontSize");
