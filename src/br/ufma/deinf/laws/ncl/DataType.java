@@ -202,7 +202,7 @@ public class DataType {
 	// TODO: Talvez o . deva ser substituído por caracteres específicos.
 	// Verificar na especificação XML.
 	public static boolean isId(String str) {
-		Pattern p = Pattern.compile("^[_a-zA-Z].*$");
+		Pattern p = Pattern.compile("^[_a-zA-Z][_0-9a-zA-Z\\-\\.]*$");
 		Matcher m = p.matcher(str);
 
 		return m.matches();
