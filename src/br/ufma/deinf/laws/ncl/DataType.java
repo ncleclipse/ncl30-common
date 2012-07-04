@@ -78,7 +78,7 @@ public class DataType {
 	public static final int BOOLEAN_OPERATOR = 12;
 	public static final int SYNCHRONISM_OPERATOR = 13;
 	public static final int INSTANCE = 14;
-	public static final int DEVICE = 15; // validacaoo feita no semântico (gera
+	public static final int DEVICE = 15; // validacao feita no semântico (gera
 	// um warning).
 	public static final int COMPARATOR = 16;
 	public static final int SIMPLEACTION_ROLE = 17;
@@ -202,7 +202,7 @@ public class DataType {
 	// TODO: Talvez o . deva ser substituído por caracteres específicos.
 	// Verificar na especificação XML.
 	public static boolean isId(String str) {
-		Pattern p = Pattern.compile("^[_a-zA-Z][_0-9a-zA-Z\\-\\.]*$");
+		Pattern p = Pattern.compile("^[_a-zA-Z][_0-9a-zA-Z\\-\\.\\#]*$");
 		Matcher m = p.matcher(str);
 
 		return m.matches();
