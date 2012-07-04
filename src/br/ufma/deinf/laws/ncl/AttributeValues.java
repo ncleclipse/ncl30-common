@@ -148,7 +148,8 @@ public class AttributeValues {
 			ret.add("resume");
 			ret.add("pause");
 		}
-		if (type == DataType.COLOR || type == DataType.TRANSITION_BORDER_COLOR) {
+		if (type == DataType.COLOR || 
+				type == DataType.TRANSITION_BORDER_COLOR) {
 			ret.add("white");
 			ret.add("black");
 			ret.add("silver");
@@ -249,7 +250,7 @@ public class AttributeValues {
 			ret.add("fade");
 		}
 		if (type == DataType.TRANSITION_SUBTYPE) {
-			// TODO: implementar validação de subtype
+			// TODO: implementar validacao de subtype
 		}
 		if (type == DataType.DIRECTION) {
 			ret.add("forward");
@@ -279,6 +280,7 @@ public class AttributeValues {
 			ret.add("height");
 			ret.add("left");
 			ret.add("location");
+			ret.add("plan");
 			ret.add("playerLife");
 			ret.add("reusePlayer");
 			ret.add("right");
@@ -294,7 +296,8 @@ public class AttributeValues {
 			ret.add("zIndex");
 		}
 		
-		if(type == DataType.SETTINGS_PROPERTY || type == DataType.PROPERTY_NAME) {
+		if(type == DataType.SETTINGS_PROPERTY || 
+				type == DataType.PROPERTY_NAME) {
 			ret.add("channel.keyboardBounds");
 			ret.add("channel.keyCapture");
 			ret.add("channel.virtualKeyboard");
@@ -368,7 +371,10 @@ public class AttributeValues {
 			ret.add("close");
 		}
 		
-		// Why we have two type with almost all?
+		// FIXME: Why have we two type DESCRIPTOR_PARAM and PROPERTY with almost
+		// the same content?
+		// In theory the properties and descriptor params values accept the 
+		// same values.
 		if (type == DataType.DESCRIPTOR_PARAMS) {
 			ret.add("background");
 			ret.add("balanceLevel");
@@ -429,6 +435,12 @@ public class AttributeValues {
 		if (type == DataType.MIN_QUANTITY || type == DataType.MAX_QUANTITY) {
 			ret.add("unbounded");
 		}
+		
+		if (type == DataType.PLAN) {
+			ret.add("video");
+			ret.add("graphic");
+			ret.add("background");
+		}
 		return ret;
 	}
 
@@ -465,6 +477,9 @@ public class AttributeValues {
 
 		else if (property.equals("reusePlayer"))
 			suggest = AttributeValues.getValues(DataType.BOOLEAN_VALUE);
+		
+		else if(property.equals("plan"))
+			suggest = AttributeValues.getValues(DataType.PLAN);
 					
 		return suggest;
 	}

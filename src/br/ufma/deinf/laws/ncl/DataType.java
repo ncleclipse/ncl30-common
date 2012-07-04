@@ -105,6 +105,8 @@ public class DataType {
 	
 	public static final int SETTINGS_PROPERTY = 37;
 	
+	public static final int PLAN = 38;
+	
 	
 	//TAL
 	// public static final int TAL_Template_ID = 38;
@@ -370,6 +372,10 @@ public class DataType {
 				if (!DataType.isTransitionBorderColor(value))
 					ok = false;
 				break;
+			case DataType.PLAN:
+				if(DataType.isPlan(value))
+					ok = false;
+				break;
 		}
 		return ok;
 	}
@@ -493,5 +499,14 @@ public class DataType {
 			return false;
 		}
 		return true;
+	}
+	
+	private static boolean isPlan(String value)
+	{
+		Vector<String> values = AttributeValues.getValues(DataType.PLAN);
+		if (values.contains(value))
+			return true;
+		return false;
+		
 	}
 }
