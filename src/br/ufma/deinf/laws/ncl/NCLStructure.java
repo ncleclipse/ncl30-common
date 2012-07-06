@@ -42,15 +42,22 @@ import br.ufma.deinf.laws.util.MultiHashMap;
  */
 public class NCLStructure {
 	private static NCLStructure instance = null;
-	private static Map <String, Map<String, Boolean> > attributes = new HashMap<String, Map<String, Boolean>>();
-	private static Map <String, Map<String, Integer> > dataTypes = new HashMap<String, Map<String, Integer>>();
-	private static Map <String, Map<String, Character> > nesting = new HashMap<String, Map<String, Character>>();
-	private static MultiHashMap references = new MultiHashMap();
+	private Map <String, Map<String, Boolean> > attributes; 
+	private Map <String, Map<String, Integer> > dataTypes;
+	private Map <String, Map<String, Character> > nesting;
+	private MultiHashMap references;
 
 	/**
 	 * Construtor privado Singleton
 	 */
 	private NCLStructure() {
+		
+		//Initialize data structures:
+		attributes = new HashMap<String, Map<String, Boolean>>();
+		dataTypes = new HashMap<String, Map<String, Integer>>();
+		nesting =  new HashMap<String, Map<String, Character>>();
+		references = new MultiHashMap();
+		
 		// nomenclature:
 		// '?' means optional (0 or 1 occurence)
 		// '*' means optional repetition (0 or more occurences)
@@ -391,7 +398,8 @@ public class NCLStructure {
 		att("transition", "horRepeat", false, DataType.INTEGER);
 		att("transition", "vertRepeat", false, DataType.INTEGER);
 		att("transition", "borderWidth", false, DataType.INTEGER);
-		att("transition", "borderColor", false, DataType.TRANSITION_BORDER_COLOR);
+		att("transition", "borderColor", false, 
+				DataType.TRANSITION_BORDER_COLOR);
 
 		// Extended Metainformation module
 		// meta
@@ -508,7 +516,7 @@ public class NCLStructure {
 	 * 
 	 * @return attributes
 	 */
-	public static Map<String, Map<String, Boolean>> getAttributes() {
+	public Map<String, Map<String, Boolean>> getAttributes() {
 		return attributes;
 	}
 
@@ -538,11 +546,11 @@ public class NCLStructure {
 
 	private void att(String elementName, String attributeName, boolean required) {
 		if (!attributes.containsKey(elementName)) {
-			attributes.put(elementName, new HashMap());
+			attributes.put(elementName, new HashMap <String, Boolean>());
 		}
-		Map<String, Boolean> atts = instance.attributes.get(elementName);
+		Map<String, Boolean> atts = attributes.get(elementName);
 		if (atts == null) {
-			atts = new HashMap();
+			atts = new HashMap <String, Boolean>();
 			attributes.put(elementName, atts);
 		}
 		atts.put(attributeName, required);
@@ -552,17 +560,17 @@ public class NCLStructure {
 	private void att(String elementName, String attributeName,
 			boolean required, int type) {
 		if (!attributes.containsKey(elementName)) {
-			attributes.put(elementName, new LinkedHashMap());
-			dataTypes.put(elementName, new HashMap());
+			attributes.put(elementName, new LinkedHashMap <String, Boolean> ());
+			dataTypes.put(elementName, new HashMap <String, Integer>());
 		}
-		Map<String, Boolean> atts = instance.attributes.get(elementName);
-		Map<String, Integer> dt = instance.dataTypes.get(elementName);
+		Map<String, Boolean> atts = attributes.get(elementName);
+		Map<String, Integer> dt = dataTypes.get(elementName);
 		if (atts == null) {
-			atts = new HashMap();
+			atts = new HashMap<String, Boolean>();
 			attributes.put(elementName, atts);
 		}
 		if (dt == null) {
-			dt = new HashMap();
+			dt = new HashMap <String, Integer>();
 			dataTypes.put(elementName, dt);
 		}
 		atts.put(attributeName, required);
@@ -572,11 +580,11 @@ public class NCLStructure {
 	private void ct(String elementName, String childElementName,
 			char cardinality) {
 		if (!nesting.containsKey(elementName)) {
-			nesting.put(elementName, new HashMap());
+			nesting.put(elementName, new HashMap<String, Character>());
 		}
-		Map<String, Character> childElement = instance.nesting.get(elementName);
+		Map<String, Character> childElement = nesting.get(elementName);
 		if (childElement == null) {
-			childElement = new HashMap();
+			childElement = new HashMap <String, Character>();
 			nesting.put(elementName, childElement);
 		}
 		childElement.put(childElementName, cardinality);
@@ -596,7 +604,7 @@ public class NCLStructure {
 	 * @param elementName
 	 * @return
 	 */
-	public static boolean isElement(String elementName) {
+	public boolean isElement(String elementName) {
 		return attributes.containsKey(elementName)
 				|| nesting.containsKey(elementName);
 	}
@@ -606,19 +614,19 @@ public class NCLStructure {
 	 * @param attributeName
 	 * @return
 	 */
-	public static boolean isAttribute(String elementName, String attributeName) {
+	public boolean isAttribute(String elementName, String attributeName) {
 		if (!getAttributes().containsKey(elementName))
 			return false;
 		else
 			return getAttributes().get(elementName).containsKey(attributeName);
 	}
 
-	public static Map<String, Map<String, Integer>> getDataTypes() {
+	public Map<String, Map<String, Integer> > getDataTypes() {
 		return dataTypes;
 	}
 
-	public static void setDataTypes(Map<String, Map<String, Integer>> dataTypes) {
-		NCLStructure.dataTypes = dataTypes;
+	public void setDataTypes(Map<String, Map<String, Integer>> dataTypes) {
+		this.dataTypes = dataTypes;
 	}
 
 	/**
@@ -628,7 +636,7 @@ public class NCLStructure {
 	 * @param attributeName
 	 * @return data type of attribute
 	 */
-	public static Integer getDataType(String elementName, String attributeName) {
+	public Integer getDataType(String elementName, String attributeName) {
 		if (!getDataTypes().containsKey(elementName)
 				|| !getDataTypes().get(elementName).containsKey(attributeName))
 			return new Integer(DataType.UNKNOWN);
@@ -642,7 +650,7 @@ public class NCLStructure {
 	 * @param childElementName
 	 * @return
 	 */
-	public static boolean isChild(String parentElementName,
+	public boolean isChild(String parentElementName,
 			String childElementName) {
 		if (!nesting.containsKey(parentElementName))
 			return false;
@@ -655,9 +663,9 @@ public class NCLStructure {
 	 * @param elementName
 	 * @return
 	 */
-	public static Map<String, Character> getChildrenCardinality(
+	public Map<String, Character> getChildrenCardinality(
 			String elementName) {
-		Map<String, Character> empty = new HashMap();
+		Map<String, Character> empty = new HashMap <String, Character>();
 		if (!nesting.containsKey(elementName))
 			return empty;
 		else
@@ -669,16 +677,16 @@ public class NCLStructure {
 	 * @param elementName
 	 * @return
 	 */
-	public static Map<String, Boolean> getAttributes(String elementName) {
-		Map<String, Boolean> empty = new HashMap();
+	public Map<String, Boolean> getAttributes(String elementName) {
+		Map<String, Boolean> empty = new HashMap <String, Boolean> ();
 		if (!attributes.containsKey(elementName))
 			return empty;
 		else
 			return attributes.get(elementName);
 	}
 
-	public static Map<String, Integer> getDataTypes(String elementName) {
-		Map<String, Integer> empty = new HashMap();
+	public Map<String, Integer> getDataTypes(String elementName) {
+		Map<String, Integer> empty = new HashMap <String, Integer> ();
 		if (!attributes.containsKey(elementName))
 			return empty;
 		else
@@ -691,17 +699,21 @@ public class NCLStructure {
 	 * @return
 	 */
 	public boolean isRequiredId(String elementName) {
-		if (!instance.getAttributes().containsKey(elementName))
+		if (!getAttributes().containsKey(elementName))
 			return false;
-		if (!instance.getAttributes().get(elementName).containsKey("id"))
+
+		// FIXME: We do not need this if.
+		if (!getAttributes().get(elementName).containsKey("id"))
 			return false;
-		return instance.getAttributes().get(elementName).containsKey("id") == true;
+		
+		return getAttributes().get(elementName).containsKey("id");
 	}
 
 	public boolean isReference(String elementName, String attributeName) {
 		if (references.containsKey(elementName)) {
 			Collection<NCLReference> collection = references.get(elementName);
-			Iterator it = collection.iterator();
+			Iterator <NCLReference> it = collection.iterator();
+			
 			while (it.hasNext()) {
 				NCLReference ref = (NCLReference) it.next();
 				if (ref.getAttribute().equals(attributeName))
@@ -726,13 +738,14 @@ public class NCLStructure {
 		return null;
 	}
 
-	public Collection getNCLReverseReference(String elementName,
+	public Collection <NCLReference> getNCLReverseReference(String elementName,
 			String attributeName) {
 		Iterator it = references.keySet().iterator();
-		Collection<NCLReference> ret = new ArrayList();
+		Collection<NCLReference> ret = new ArrayList <NCLReference>();
 		while (it.hasNext()) {
-			Collection<NCLReference> collection = (Collection<NCLReference>) references
-					.get(it.next());
+			Collection<NCLReference> collection = 
+					(Collection<NCLReference>) references .get(it.next());
+			
 			Iterator it2 = collection.iterator();
 			while (it2.hasNext()) {
 				NCLReference ref = (NCLReference) it2.next();
@@ -749,6 +762,7 @@ public class NCLStructure {
 		Vector <String> vet = new Vector<String>();
 		Iterator it = nesting.keySet().iterator();
 		Iterator it2;
+		
 		while(it.hasNext())
 		{
 			String tagname = (String) it.next();
