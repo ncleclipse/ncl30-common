@@ -41,7 +41,7 @@ public class DataType {
 	public static final int UNKNOWN = -1;
 	public static final int ID = 0;
 	public static final int STRING = 1;
-	public static final int INTEGER = 2;
+	public static final int POSITIVE_INTEGER = 2; // This will also include "0".
 	public static final int DOUBLE = 3;
 	public static final int COORDINATE = 4;
 	public static final int TIME = 5;
@@ -102,8 +102,8 @@ public class DataType {
 	 * @deprecated
 	 */
 	public static int getType(String str) {
-		if (isInteger(str))
-			return INTEGER;
+		if (isPositiveInteger(str))
+			return POSITIVE_INTEGER;
 		if (isDouble(str))
 			return DOUBLE;
 		if (isCoordinate(str))
@@ -117,7 +117,7 @@ public class DataType {
 		return STRING;
 	}
 
-	public static boolean isInteger(String str) {
+	public static boolean isPositiveInteger(String str) {
 		Pattern p = Pattern.compile("^[0-9]*$");
 		Matcher m = p.matcher(str);
 
@@ -188,7 +188,7 @@ public class DataType {
 
 	// 20px, 20, 20%
 	public static boolean isSize(String str) {
-		if (isInteger(str))
+		if (isPositiveInteger(str))
 			return true;
 		Pattern p = Pattern.compile("^[0-9]*px$");
 		Matcher m = p.matcher(str);
@@ -240,8 +240,8 @@ public class DataType {
 				if (!DataType.isCoordinate(value))
 					ok = false;
 				break;
-			case DataType.INTEGER:
-				if (!DataType.isInteger(value))
+			case DataType.POSITIVE_INTEGER:
+				if (!DataType.isPositiveInteger(value))
 					ok = false;
 				break;
 			case DataType.STRING:

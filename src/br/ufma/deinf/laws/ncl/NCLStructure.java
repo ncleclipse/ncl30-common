@@ -149,7 +149,7 @@ public class NCLStructure {
 		att("area", "begin", false, DataType.TIME);
 		att("area", "end", false, DataType.TIME);
 		att("area", "text", false, DataType.STRING);
-		att("area", "position", false, DataType.INTEGER);
+		att("area", "position", false, DataType.POSITIVE_INTEGER);
 		att("area", "first", false, DataType.STRING);
 		att("area", "last", false, DataType.STRING);
 		att("area", "label", false, DataType.STRING);
@@ -188,11 +188,11 @@ public class NCLStructure {
 		att("descriptor", "explicitDur", false, DataType.TIME);
 		att("descriptor", "region", false, DataType.ID);
 		att("descriptor", "freeze", false);
-		att("descriptor", "moveLeft", false);
-		att("descriptor", "moveRight", false);
-		att("descriptor", "moveDown", false);
-		att("descriptor", "moveUp", false);
-		att("descriptor", "focusIndex", false);
+		att("descriptor", "moveLeft", false, DataType.POSITIVE_INTEGER);
+		att("descriptor", "moveRight", false, DataType.POSITIVE_INTEGER);
+		att("descriptor", "moveDown", false, DataType.POSITIVE_INTEGER);
+		att("descriptor", "moveUp", false, DataType.POSITIVE_INTEGER);
+		att("descriptor", "focusIndex", false, DataType.POSITIVE_INTEGER);
 		att("descriptor", "focusBorderColor", false, DataType.COLOR);
 		att("descriptor", "focusBorderWidth", false);
 		att("descriptor", "focusBorderTransparency", false);
@@ -395,9 +395,9 @@ public class NCLStructure {
 		att("transition", "endProgress", false);
 		att("transition", "direction", false, DataType.DIRECTION);
 		att("transition", "fadeColor", false, DataType.COLOR);
-		att("transition", "horRepeat", false, DataType.INTEGER);
-		att("transition", "vertRepeat", false, DataType.INTEGER);
-		att("transition", "borderWidth", false, DataType.INTEGER);
+		att("transition", "horRepeat", false, DataType.POSITIVE_INTEGER);
+		att("transition", "vertRepeat", false, DataType.POSITIVE_INTEGER);
+		att("transition", "borderWidth", false, DataType.POSITIVE_INTEGER);
 		att("transition", "borderColor", false, 
 				DataType.TRANSITION_BORDER_COLOR);
 
